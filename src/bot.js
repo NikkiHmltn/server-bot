@@ -22,6 +22,10 @@ bot.on('message', (message) => {
     if (message.content === '!ping') {
         message.channel.send('Pong!')
     } else if (message.content === prefix) {
+        console.log("MESSAGE CONTENT", message.content)
+        console.log(args, "ARGS")
+        console.log(args.length, "ARGS LENGTH")
+        console.log(args[0], "ARGS AT 0")
         if (!args.length) {
 			return message.channel.send(`Understood. Dumping Kaichou trivia, ${message.author}!`);
 		} else if (args[0] === 'foo') {
