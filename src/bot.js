@@ -27,11 +27,14 @@ bot.on('message', (message) => {
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const command = args.shift().toLowerCase();
 
-    if (command === 'ping') {
-        console.log(args, "ARGS")
-        console.log(args.length, 'ARGS LENGTH')
-        bot.commands.get('ping').execute(message, args)
-    }
+    if (!client.commands.has(command)) return;
+
+    try {
+        client.commands.get(command).execute(message, args);
+    } catch (error) {
+        console.error(error);
+        message.reply(`I can't find anything like that.`);
+}
 })
 
 bot.on('guildMemberUpdate', (oldMember, newMember) => {
