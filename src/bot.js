@@ -13,10 +13,22 @@ bot.on('ready', () => {
 })
 
 bot.on('message', (message) => {
+
+    if (!message.content.startsWith(prefix) || message.author.bot) return;
+
+	const args = message.content.slice(prefix.length).trim().split(/ +/);
+	const command = args.shift().toLowerCase();
+
     if (message.content === '!ping') {
         message.channel.send('Pong!')
     } else if (message.content === prefix) {
-        message.channel.send('Do you really want me to dump my databases of Kaichou trivia?')
+        if (!args.length) {
+			return message.channel.send(`Understood. Dumping Kaichou trivia, ${message.author}!`);
+		} else if (args[0] === 'foo') {
+			return message.channel.send('bar');
+        }
+        
+        message.channel.send(`Command name: ${command}\nArugments: ${args}`)
     }
 })
 
