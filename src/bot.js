@@ -16,7 +16,7 @@ bot.on('guildMemberUpdate', (oldMember, newMember) => {
 
     const changeEmbed = new Discord.MessageEmbed()
         .setColor('#42ecf5')
-        .setDescription(`Kaichou, ***MILKROT*** has become ***${newMember.nickname}***.`)
+        .setDescription(`Kaichou, ***MILKROT***  has become ***${newMember.nickname}***. *Beep Boop*`)
 
     if(oldMember.id === "717816505777127514") {
         bot.channels.cache.get("729543736463458356").send(changeEmbed)
