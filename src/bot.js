@@ -8,6 +8,14 @@ const bot = new Discord.Client({ws: {intents: Discord.Intents.ALL}})
 bot.commands = new Discord.Collection()
 const prefix = "!lore"
 
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'))
+
+for (const file of commandFiles) {
+    const command = require(`./commands/${file}`)
+}
+
+bot.commands.set(command.name, command)
+
 bot.on('ready', () => {
     console.log(`Sayaka-bot has logged in`)
 })
@@ -19,20 +27,10 @@ bot.on('message', (message) => {
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const command = args.shift().toLowerCase();
 
-    if (message.content === '!ping') {
-        message.channel.send('Pong!')
-    } else if (message.content === prefix) {
-        console.log("MESSAGE CONTENT", message.content)
+    if (command === 'ping') {
         console.log(args, "ARGS")
-        console.log(args.length, "ARGS LENGTH")
-        console.log(args[0], "ARGS AT 0")
-        if (!args.length) {
-			return message.channel.send(`Understood. Dumping Kaichou trivia, ${message.author}!`);
-		} else if (args[0] === 'foo') {
-			return message.channel.send('bar');
-        }
-        
-        message.channel.send(`Command name: ${command}\nArugments: ${args}`)
+        console.log(args.length, 'ARGS LENGTH')
+        bot.commands.get('ping').execute(message, args)
     }
 })
 
