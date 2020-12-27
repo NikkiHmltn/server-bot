@@ -6,7 +6,7 @@ const db = require('../models')
 const Discord = require('discord.js')
 const bot = new Discord.Client({ws: {intents: Discord.Intents.ALL}})
 bot.commands = new Discord.Collection()
-const prefix = "!lore"
+const prefix = "!"
 
 const commandFiles = fs.readdirSync(__dirname + "/commands").filter(file => file.endsWith('.js'))
 
