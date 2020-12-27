@@ -1,11 +1,28 @@
 require('dotenv').config();
 
+const fs = require('fs')
+const Sequelize = require('sequelize')
+const db = require('./models')
 const Discord = require('discord.js')
 const bot = new Discord.Client({ws: {intents: Discord.Intents.ALL}})
 bot.commands = new Discord.Collection()
+const prefix = "!lore"
+
+const  commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'))
+
+for (const file of commandFiles) {
+    const command = require(`./commands/${file}`);
+    bot.commands.set(command.name, command)
+}
 
 bot.on('ready', () => {
     console.log(`Sayaka-bot has logged in`)
+})
+
+bot.on('message', (message) => {
+    if (message.content === '!ping') {
+        message.channel.send('Pong!')
+    }
 })
 
 bot.on('guildMemberUpdate', (oldMember, newMember) => {
@@ -18,5 +35,7 @@ bot.on('guildMemberUpdate', (oldMember, newMember) => {
         bot.channels.cache.get("729543736463458356").send(changeEmbed)
     }
 })
+
+
 
 bot.login(process.env.SAYAKA_BOT_TOKEN);
