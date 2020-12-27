@@ -12,9 +12,9 @@ const commandFiles = fs.readdirSync(__dirname + "/commands").filter(file => file
 
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`)
+    bot.commands.set(command.name, command)
 }
 
-bot.commands.set(command.name, command)
 
 bot.on('ready', () => {
     console.log(`Sayaka-bot has logged in`)
