@@ -15,6 +15,8 @@ bot.on('ready', () => {
 bot.on('message', (message) => {
     if (message.content === '!ping') {
         message.channel.send('Pong!')
+    } else if (message.content === prefix) {
+        message.channel.send('Do you really want me to dump my databases of Kaichou trivia?')
     }
 })
 
