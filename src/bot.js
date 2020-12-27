@@ -8,7 +8,7 @@ const bot = new Discord.Client({ws: {intents: Discord.Intents.ALL}})
 bot.commands = new Discord.Collection()
 const prefix = "!lore"
 
-const commandFiles = fs.readdirSync('../commands').filter(file => file.endsWith('.js'))
+const commandFiles = fs.readdir('./commands').filter(file => file.endsWith('.js'))
 
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`)
