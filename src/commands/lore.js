@@ -12,8 +12,7 @@ module.exports = {
             const embeded = new Discord.MessageEmbed()
                 .setColor('#42ecf5')
                 .setTitle('Sandwich')
-                .setURL("https://discord.com/channels/710204822846046258/715698136089362554/731929531488665611")
-                .setDescription("RayDaug, aka Server Dad, aka Mr. Daug, aka man who can't make a sandwich, created this abonination of Peanut Butter and Jelly sandwich. Kaichou deserves better. *Beep Boop*")
+                .setDescription("RayDaug, aka Server Dad, aka Mr. Daug, aka man who can't make a sandwich, created this abomination of Peanut Butter and Jelly sandwich. Kaichou deserves better. *Beep Boop*\nhttps://discord.com/channels/710204822846046258/715698136089362554/731929531488665611")
                 .setImage("https://media.discordapp.net/attachments/722508463690875000/741488249620398150/dadawhich.png")
 
             message.channel.send(embeded)
