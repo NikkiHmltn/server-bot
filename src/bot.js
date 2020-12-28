@@ -15,10 +15,6 @@ for (const file of commandFiles) {
     bot.commands.set(command.name, command)
 }
 
-
-console.log(bot.emojis)
-console.log(client.emojis)
-
 bot.on('ready', () => {
     console.log(`Sayaka-bot has logged in`)
 })
