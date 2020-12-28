@@ -146,6 +146,12 @@ module.exports = {
                 .setImage("https://media.discordapp.net/attachments/731528024687902830/792596727425007636/sayakabot.jpg")
 
             message.channel.send(embeded)
+        }else if (args[0].toLowerCase() === "nickocado") {
+            const embeded = new Discord.MessageEmbed()
+                .setColor('#42ecf5')
+                .setDescription("https://www.youtube.com/watch?v=mTn_rmpDCV8&feature=youtu.be")
+
+            message.channel.send(embeded)
         }
     }
 }
