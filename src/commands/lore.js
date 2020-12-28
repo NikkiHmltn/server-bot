@@ -17,7 +17,7 @@ module.exports = {
 
             message.channel.send(embeded)
         } else if (args[0].toLowerCase() === "farmer" && args[1].toLowerCase() === "kirari") {
-            ,
+            
             const embeded = new Discord.MessageEmbed()
                 .setColor('#42ecf5')
                 .setTitle('Farmer Kirari')
