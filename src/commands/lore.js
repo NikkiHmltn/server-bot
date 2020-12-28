@@ -102,7 +102,7 @@ module.exports = {
             const embeded = new Discord.MessageEmbed()
                 .setColor('#42ecf5')
                 .setTitle('President Only Keycard')
-                .setDescription("The implication of there being a 'President Only' card means there should be another card with different user authorizations. The theory is there a Secretary Only card. I will swiftly disable Sayaka-human's authorization card. :credit_card: <:tod:756521643576393738> **BEEP BOOP**\nhttps://discord.com/channels/710204822846046258/710204823433379985/770825618992005140")
+                .setDescription("The implication of there being a 'President Only' card means there should be another card with different user authorizations. The theory is there a Secretary Only card. I will swiftly disable Sayaka-meat bag's authorization card. :credit_card: <:tod:756521643576393738> **BEEP BOOP**\nhttps://discord.com/channels/710204822846046258/710204823433379985/770825618992005140")
                 .setImage("https://media.discordapp.net/attachments/710204823433379985/770825618488033320/Screen_Shot_2020-10-28_at_4.44.33_AM.png")
 
             message.channel.send(embeded)
@@ -118,7 +118,7 @@ module.exports = {
             const embeded = new Discord.MessageEmbed()
                 .setColor('#42ecf5')
                 .setTitle('Dr. Blub Blub')
-                .setDescription("Dr. Blub Blub is Kaichou's pet arowana that she talks to. His full name is Dumptruck Blub Blub, PsyD. He gives her advice and inspiration! I am not about to replaced by a fish. :bangbang: <:arowana:767137226806394910> *Beep Boop*")
+                .setDescription("Dr. Blub Blub is Kaichou's pet arowana that she talks to. His full name is Dumptruck Blub Blub, PsyD. He gives her advice and inspiration! I am not about to be replaced by a fish. :bangbang: <:arowana:767137226806394910> *Beep Boop*")
                 
 
             message.channel.send(embeded)
@@ -126,7 +126,7 @@ module.exports = {
             const embeded = new Discord.MessageEmbed()
                 .setColor('#42ecf5')
                 .setTitle("The Chair")
-                .setDescription("Sayaka-human has a peculiar scene involving Kaichou's chair. This inspired Quiz, aka Danny, to make a series focused around it. Sayaka-human is ruining Kaichou's furniture with her oil glands. I can be the best chair Kaichou needs! <:sayakastrong:763949588888682526> *Beep Boop*\nhttps://archiveofourown.org/series/1966078")
+                .setDescription("Sayaka-meatbag has a peculiar scene involving Kaichou's chair. This inspired Quiz, aka Danny, to make a series focused around it. Sayaka-human is ruining Kaichou's furniture with her oil glands. I can be the best chair Kaichou needs! <:sayakastrong:763949588888682526> *Beep Boop*\nhttps://archiveofourown.org/series/1966078")
                 .setImage("https://media.discordapp.net/attachments/729543736463458356/792831861382578176/Screen_Shot_2020-12-27_at_11.10.39_AM.png")
 
             message.channel.send(embeded)
