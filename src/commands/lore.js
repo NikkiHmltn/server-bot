@@ -17,8 +17,9 @@ module.exports = {
 
             message.channel.send(embeded)
         } else if (args[0].toLowerCase() === "farmer" && args[1].toLowerCase() === "kirari") {
-            const kirarifarmer = bot.emojis.find(emoji => emoji.name === 'farmerkirarichibi')
+            
             const embeded = new Discord.MessageEmbed()
+            const kirarifarmer = bot.emojis.find(emoji => emoji.name === 'farmerkirarichibi')
                 .setColor('#42ecf5')
                 .setTitle('Farmer Kirari')
                 .setDescription(`Farmer Kirari is CastleofLion's crack headcanon about the origin of the Momobami name. I think the Kaichou looks pretty next to the peach blossoms. ${kirarifarmer} *Beep Boop*\nhttps://discord.com/channels/710204822846046258/710204823433379985/716347441485709432`)
