@@ -38,7 +38,7 @@ module.exports = {
             const embeded = new Discord.MessageEmbed()
                 .setColor('#42ecf5')
                 .setTitle('HAP (Haunted Ass P*ssy)')
-                .setDescription("A joke that started with RayDaug and exploded into HAP (Haunted Ass Pu— I can't say it) Sintreaties is the writer behind the ghostly phenomenon, assisted by her ghost writer, RauDaug. They took this secret HAP to the grave for two months while it was written. It was released for HDA Vol. 2: In the Spirit of Halloween. I will love my Kaichou while my circuits still function and after! :sayakaflustered: :ghost:\nhttps://archiveofourown.org/works/27299857  *Beep Boop*")
+                .setDescription("A joke that started with RayDaug and exploded into HAP (Haunted Ass Pu— I can't say it) Sintreaties is the writer behind the ghostly phenomenon, assisted by her ghost writer, RauDaug. They took this secret HAP to the grave for two months while it was written. It was released for HDA Vol. 2: In the Spirit of Halloween. I will love my Kaichou while my circuits still function and after! <:sayakaflustered:763219853661962270> :ghost:\nhttps://archiveofourown.org/works/27299857  *Beep Boop*")
                 .setImage("https://media.discordapp.net/attachments/731539273362178138/772014890616619018/image0.gif")
 
             message.channel.send(embeded)
