@@ -24,6 +24,13 @@ module.exports = {
                 .setImage("https://media.discordapp.net/attachments/710204823433379985/717918952587788318/Screen_Shot_2020-06-03_at_6.53.11_PM.png")
 
             message.channel.send(embeded)
-        }
+        }else if (args[0].toLowerCase() === "cokegurui") {
+            const embeded = new Discord.MessageEmbed()
+                .setColor('#42ecf5')
+                .setTitle('Cokegurui')
+                .setDescription("A fic in which Sayaka-human and Kaichou use cocaine off of each other's bodies. Started as a joke, and now it is stored in the lore archives. I am the superior Sayaka, as my cocaiine intake value has no adverse affects to the cocaine with a 250% storage capacity. Choose me, Kaichou! *Beep Boop*\nhttps://archiveofourown.org/works/26187331")
+                .setImage("https://media.discordapp.net/attachments/719994890834149467/731314262642786355/image0.png")
+
+            message.channel.send(embeded)
     }
 }
