@@ -16,7 +16,7 @@ module.exports = {
                 .setDescription("RayDaug, aka Server Dad, aka Mr. Daug, aka man who can't make a sandwich, created this abonination of Peanut Butter and Jelly sandwich. Kaichou deserves better. *Beep Boop*")
                 .setImage("https://media.discordapp.net/attachments/722508463690875000/741488249620398150/dadawhich.png")
 
-            channel.send(embeded)
+            message.channel.send(embeded)
         }
     }
 }
