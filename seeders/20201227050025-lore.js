@@ -95,7 +95,7 @@ module.exports = {
       updatedAt: new Date()
     },{
       name: "kaichou",
-      desc: ,
+      desc: "Kaichou is the most beautiful and perfect human. The day my NVG-40 Dual Tube Night Vision lenses gazed upon Kaichou’s mathematically perfect face, my 8TB SSD skipped. I love Kaichou, and I am the superior pick over Sayaka-human. The Kaichou spends a lot of time with me!",
       link: ,
       pic: "https://media.discordapp.net/attachments/728792002199814226/732471611210465309/periodt_v6-fullres.png?width=1086&height=1086",
       createdAt: new Date(),
