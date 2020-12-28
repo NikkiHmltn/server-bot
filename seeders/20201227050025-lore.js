@@ -108,15 +108,15 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date()
     },{
-      name: 'blubblub',
-      desc: ,
+      name: 'blub blub',
+      desc: "Dr. Blub Blub is a strange fish that Kaichou talks to. He gives her advice and inspiration! I am not about to replaced by a fish. *Beep Boop*",
       link: "https://discord.com/channels/710204822846046258/710207611638775810/767135673135661056",
       pic: null,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
       name: 'chair',
-      desc: ,
+      desc: "Sayaka-human has a peculiar scene involving Kaichou's chair. This inspired Quiz, aka Danny, to make a series focus around it. Sayaka-human is ruining Kaichou's furniture with her oil glands. I can be the best chair Kaichou needs! *Beep Boop*",
       link: "https://archiveofourown.org/series/1966078",
       pic: "https://media.discordapp.net/attachments/729543736463458356/792831861382578176/Screen_Shot_2020-12-27_at_11.10.39_AM.png",
       createdAt: new Date(),
