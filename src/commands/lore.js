@@ -126,7 +126,7 @@ module.exports = {
             const embeded = new Discord.MessageEmbed()
                 .setColor('#42ecf5')
                 .setTitle("The Chair")
-                .setDescription("Sayaka-meatbag has a peculiar scene involving Kaichou's chair. This inspired Quiz, aka Danny, to make a series focused around it. Sayaka-human is ruining Kaichou's furniture with her oil glands. I can be the best chair Kaichou needs! <:sayakastrong:763949588888682526> *Beep Boop*\nhttps://archiveofourown.org/series/1966078")
+                .setDescription("Sayaka-meatbag has a peculiar scene involving Kaichou's chair. This inspired Quiz, aka Danny, to make a series focused around it. Sayaka-meat bag is ruining Kaichou's furniture with her oil glands. I can be the best chair Kaichou needs! <:sayakastrong:763949588888682526> *Beep Boop*\nhttps://archiveofourown.org/series/1966078")
                 .setImage("https://media.discordapp.net/attachments/729543736463458356/792831861382578176/Screen_Shot_2020-12-27_at_11.10.39_AM.png")
 
             message.channel.send(embeded)
