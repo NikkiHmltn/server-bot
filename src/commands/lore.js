@@ -17,7 +17,7 @@ module.exports = {
 
             message.channel.send(embeded)
         } else if (args[0].toLowerCase() === "farmer" && args[1].toLowerCase() === "kirari") {
-            let kirarifarmer = bot.emojis.find(emoji => emoji.name === 'farmerkirarichibi'),
+            ,
             const embeded = new Discord.MessageEmbed()
                 .setColor('#42ecf5')
                 .setTitle('Farmer Kirari')
@@ -25,7 +25,7 @@ module.exports = {
                 .setImage("https://media.discordapp.net/attachments/710204823433379985/717918952587788318/Screen_Shot_2020-06-03_at_6.53.11_PM.png")
 
             message.channel.send(embeded)
-            console.log(kirarifarmer)
+            
         }else if (args[0].toLowerCase() === "cokegurui") {
             const embeded = new Discord.MessageEmbed()
                 .setColor('#42ecf5')

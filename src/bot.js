@@ -15,6 +15,8 @@ for (const file of commandFiles) {
     bot.commands.set(command.name, command)
 }
 
+let kirarifarmer = bot.emojis.find(emoji => emoji.name === 'farmerkirarichibi')
+console.log(kirarifarmer)
 
 bot.on('ready', () => {
     console.log(`Sayaka-bot has logged in`)
