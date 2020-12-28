@@ -32,5 +32,6 @@ module.exports = {
                 .setImage("https://media.discordapp.net/attachments/719994890834149467/731314262642786355/image0.png")
 
             message.channel.send(embeded)
+        }
     }
 }
