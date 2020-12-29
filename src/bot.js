@@ -36,6 +36,10 @@ bot.on('message', (message) => {
 }
 })
 
+bot.on('guildMemberAdd', (message, member) => {
+    member.guild.channels.get('729812555853201508').send("Welcome to the server! We're happy to have you.\n1. I'm Sayaka-bot! I help out the human mods around here. Check out my list of commands at !help (or whatever you end up making it)\n2. Be sure to get acquainted with the rules in <#739851594069180508>\n3. We have a quick <#720780348904046684> that you can fill out so we can get to know you better. It includes things like the name you'd prefer to go by and your pronouns.\n4. Be sure to check the pins in various channels. There's extremely cursed content good lore in there.\n5. Get in touch with any member of the mod team if you have any questions or concerns.\n6. Feel free to join a discussion already in progress or start a discussion of your own! <:sayakahappy:763256274807685120> *Beep Boop*")
+})
+
 bot.on('guildMemberUpdate', (oldMember, newMember) => {
 
     const changeEmbed = new Discord.MessageEmbed()
