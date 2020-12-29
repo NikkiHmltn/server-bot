@@ -1,5 +1,3 @@
-const discord = require('discord')
-
 module.exports = {
     name: "help",
     description: "Sends a list of commands to the user",
