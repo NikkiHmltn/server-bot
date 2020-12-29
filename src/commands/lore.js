@@ -147,11 +147,7 @@ module.exports = {
 
             message.channel.send(embeded)
         }else if (args[0].toLowerCase() === "nickocado") {
-            const embeded = new Discord.MessageEmbed()
-                .setColor('#42ecf5')
-                .setDescription("https://www.youtube.com/watch?v=mTn_rmpDCV8&feature=youtu.be")
-
-            message.channel.send(embeded)
+            message.channel.send("https://www.youtube.com/watch?v=mTn_rmpDCV8&feature=youtu.be")
         }
     }
 }
