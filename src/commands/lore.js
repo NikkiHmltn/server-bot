@@ -42,10 +42,10 @@ module.exports = {
                 .setImage("https://media.discordapp.net/attachments/731539273362178138/772014890616619018/image0.gif")
 
             message.channel.send(embeded)
-        }else if (args[0].toLowerCase() === "sayacaviar") {
+        }else if (args[0].toLowerCase() === "sayakaviar") {
             const embeded = new Discord.MessageEmbed()
                 .setColor('#42ecf5')
-                .setTitle('Sayacaviar')
+                .setTitle('Sayakaviar')
                 .setDescription("Sayakaviar is a crack fic mermaid AU written by RayDaug. <:sayakaflustered:763219853661962270> K-Kaichou enjoys my eggs... *Beep Boop*\nhttps://archiveofourown.org/works/25602187/chapters/66987862")
                 .setImage("https://media.discordapp.net/attachments/771873207694262292/773364647608713216/unknown.png")
 
@@ -146,7 +146,7 @@ module.exports = {
                 .setImage("https://media.discordapp.net/attachments/731528024687902830/792596727425007636/sayakabot.jpg")
 
             message.channel.send(embeded)
-        }else if (args[0].toLowerCase() === "nickocado") {
+        }else if (args[0].toLowerCase() === "nikocado") {
             message.channel.send("https://www.youtube.com/watch?v=mTn_rmpDCV8&feature=youtu.be")
         }
     }
