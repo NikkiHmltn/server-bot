@@ -21,10 +21,14 @@ bot.on('ready', () => {
 
 bot.on('message', (message) => {
 
-    if(message.content.includes("love sayaka bot", "love sayaka-bot")) {
+    let loveWords = ["love sayaka bot", "love sayaka-bot", "love you sayaka-bot", "love you sayaka bot"]
+    for (let i = 0; i < loveWords.length; i++) {
+        if(message.content.toLowerCase.includes(loveWords[i])) {
         const currentDate = new Date()
         message.reply(`:ballot_box_with_check: *read at ${currentDate.getHours()}:${currentDate.getMinutes()}*GMT`)
+        }
     }
+    
 
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
