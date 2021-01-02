@@ -26,7 +26,7 @@ bot.on('message', (message) => {
         let lowercase = message.content.toLowerCase()
         if(lowercase.includes(loveWords[i])) {
         const currentDate = new Date()
-        message.reply(`:ballot_box_with_check: *Read at ${currentDate.getTime()} UCT*`)
+        message.reply(`:ballot_box_with_check: *Read at ${currentDate.getUTCHours()}:${currentDate.getUTCMinutes()}* UTC`)
         }
     }
     
