@@ -21,7 +21,7 @@ bot.on('ready', () => {
 
 bot.on('message', (message) => {
 
-    if(message.content.includes("love you" && "bot") {
+    if(message.content.includes("love you" && "bot")) {
         const currentDate = new Date()
         message.reply(`:ballot_box_with_check: *read at ${currentDate.getHours()}:${currentDate.getMinutes()}*`)
     }
