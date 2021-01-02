@@ -21,6 +21,11 @@ bot.on('ready', () => {
 
 bot.on('message', (message) => {
 
+    if(message.content.includes("love you" && "bot") {
+        const currentDate = new Date()
+        message.reply(`:ballot_box_with_check: *read at ${currentDate.getHours()}:${currentDate.getMinutes()}*`)
+    }
+
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
