@@ -23,7 +23,7 @@ bot.on('message', (message) => {
 
     let loveWords = ["love sayaka bot", "love sayaka-bot", "love you sayaka-bot", "love you sayaka bot"]
     for (let i = 0; i < loveWords.length; i++) {
-        if(message.content.toLowerCase.includes(loveWords[i])) {
+        if(message.content.includes(loveWords[i])) {
         const currentDate = new Date()
         message.reply(`:ballot_box_with_check: *read at ${currentDate.getHours()}:${currentDate.getMinutes()}*GMT`)
         }
