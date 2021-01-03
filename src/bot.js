@@ -36,7 +36,7 @@ bot.on('message', async message => {
         if (smallMsg.includes(thanks[i])) {
             try {
                 await message.react("793288941956104202")
-                await message.react("795347555503964181")
+                await message.react("👍")
             } catch (err) {
                 console.error("one emoji failed to react")
             }
