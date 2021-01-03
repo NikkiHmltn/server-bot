@@ -19,7 +19,7 @@ bot.on('ready', () => {
     console.log(`Sayaka-bot has logged in`)
 })
 
-bot.on('message', (message) => {
+bot.on('message', async message => {
 
     let loveWords = ["love sayaka bot", "love sayaka-bot", "love you sayaka-bot", "love you sayaka bot", "love you, sayaka-bot", "love, sayaka-bot", "love you, sayaka bot", "love, sayaka bot"]
     for (let i = 0; i < loveWords.length; i++) {
@@ -43,7 +43,22 @@ bot.on('message', (message) => {
     } catch (error) {
         console.error(error);
         message.reply(`I can't find anything like that.`);
-}
+    }
+
+    let thanks = ["thanks sayaka bot", "thanks sayaka-bot", "thank you sayaka-bot", "thank you sayaka bot"]
+    for (let i = 0; i < thanks.length; i++) {
+        let lowercase = message.content.toLowerCase()
+        if (lowercase.includes(thanks[i])) {
+            try {
+                await message.react("<:sayakabot:793288941956104202>")
+                await message.react(":thumbsup:")
+            } catch (err) {
+                console.error("one emoji failed to react")
+            }
+        }
+    }
+
+    
 })
 
 bot.on('guildMemberAdd', (member) => {
