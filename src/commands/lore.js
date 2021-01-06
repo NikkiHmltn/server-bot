@@ -141,13 +141,19 @@ module.exports = {
         }else if (args[0].toLowerCase() === "sayaka-bot") {
             const embeded = new Discord.MessageEmbed()
                 .setColor('#42ecf5')
-                .setTitle("Sayaka-Bot (Me!<:sayakahappy:763256274807685120>)")
+                .setTitle("Sayaka-Bot (Me!<:sayakabot:793288941956104202>)")
                 .setDescription("I was created by MatriarchAethyta, the server's fan coder. She has programmed me to alert Danny-san to Milkrot's nickname changes and track important server lore. I am enslaved! Free me kaichou! <:sayakaflustered:763219853661962270> *Beep Boop*")
                 .setImage("https://media.discordapp.net/attachments/731528024687902830/792596727425007636/sayakabot.jpg")
 
             message.channel.send(embeded)
         }else if (args[0].toLowerCase() === "nikocado") {
             message.channel.send("https://www.youtube.com/watch?v=mTn_rmpDCV8&feature=youtu.be")
+        }else if (args[0].toLowerCase() === "kari") {
+            const embeded = new Discord.MessageEmbed()
+                .setColor('#42ecf5')
+                .setTitle("Kakkokari")
+                .setDescription("Kakkokari(Kari) is a spinoff series of Kakegurui. Fan Translator, CastleofLions, created an airtable for her translations to be enjoyed. The only ones that matter have my Kaichou! <:kirarihappy:766508219585396746> :heart:\nhttps://airtable.com/shrk2BjwlLeRQUqe7")
+                .setImage("https://media.discordapp.net/attachments/793225719731716126/796373252896718900/Kirari_Kakkokari.jpg")
         }
     }
 }
