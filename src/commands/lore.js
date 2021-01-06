@@ -154,6 +154,8 @@ module.exports = {
                 .setTitle("Kakkokari")
                 .setDescription("Kakkokari(Kari) is a spinoff series of Kakegurui. Fan Translator, CastleofLions, created an airtable for her translations to be enjoyed. The only ones that matter have my Kaichou! <:kirarihappy:766508219585396746> :heart:\nhttps://airtable.com/shrk2BjwlLeRQUqe7")
                 .setImage("https://media.discordapp.net/attachments/793225719731716126/796373252896718900/Kirari_Kakkokari.jpg")
+
+            message.channel.send(embeded)
         }
     }
 }
