@@ -156,6 +156,14 @@ module.exports = {
                 .setImage("https://media.discordapp.net/attachments/793225719731716126/796373252896718900/Kirari_Kakkokari.jpg")
 
             message.channel.send(embeded)
+        }else if (args[0].toLowerCase() === "bustin") {
+            const embeded = new Discord.MessageEmbed()
+                .setColor('#42ecf5')
+                .setTitle("Ghost Hunting")
+                .setDescription("Ghost Hunting on Phasmophobia every Friday at 9PM EST. Sit back, relax, and enjoy Schweppsi. ")
+                .setImage("https://media.discordapp.net/attachments/731539273362178138/787469778553929778/ghost_hunting.png?width=2004&height=973")
+
+            message.channel.send(embeded)
         }
     }
 }
