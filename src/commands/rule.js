@@ -28,7 +28,7 @@ module.exports = {
         } else if (args[0] === "11") {
             message.channel.send(`Prolonged inactivity can result in you being removed from the server without warning. We want our members participating in our server! "Participation" meaning either the creation of fan content or taking part in discussions. If you feel like you need to step away from the server for a prolonged period of time for any reason, please feel free to reach out to the moderation staff so we can accommodate you.`)
         } else if (args[0].toLowerCase() === "all") {
-            message.channel.send(`If you would like to read the full list of rules, please see the admin's post here:\n
+            message.channel.send(`If you would like to read the full list of rules, please see the admin's post here:
             https://discord.com/channels/710204822846046258/739851594069180508/739853061970722887`)
         }
     }
