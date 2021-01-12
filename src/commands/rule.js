@@ -1,6 +1,6 @@
 module.exports = {
-    name: 'lore',
-    description: 'Fetches lore from the db',
+    name: 'rule',
+    description: 'Lists the rules for the server,
     args: true,
     execute(message, args){
         if (!args[0] || args[0] === "") {
