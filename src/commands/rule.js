@@ -1,6 +1,6 @@
 module.exports = {
     name: 'rule',
-    description: 'Lists the rules for the server,
+    description: 'Lists the rules for the server',
     args: true,
     execute(message, args){
         if (!args[0] || args[0] === "") {
