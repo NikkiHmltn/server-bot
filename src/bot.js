@@ -57,20 +57,14 @@ bot.on('message', async message => {
         console.error(error);
         message.reply(`I can't find anything like that.`);
     }
-
-    console.log("I am ready");
-    var guild = bot.guilds.cache
-    console.log(message)
-    console.log(member)
-    if(guild && guild.channels.get('channelid')){
-        guild.channels.get('channelid').send("Good Morning").then(() => bot.destroy());
-    } else {
-        console.log("nope");
-        //if the bot doesn't have guild with the id guildid
-        // or if the guild doesn't have the channel with id channelid
-    }
-    bot.destroy();
     
+    
+    let scheduledMessage = new cron.CronJob('00 15 21 * * 6', () => {
+        let channel = bot.channels.cache.get('793225719731716126');
+        channel.send('Test');
+    });
+    scheduledMessage.start()
+
 })
 
 
@@ -97,7 +91,29 @@ bot.on('guildMemberAdd', (member) => {
     member.guild.channels.cache.get("729812555853201508").send(welcomeEmbed)
 })
 
+bot.login("token").then(() => {
+    // console.log("I am ready");
+    // let guild = bot.guilds.cache.get("710204822846046258")
+    
+    
+    // console.log(guild.members.cache, "BOT.GUILDS.CACHE.GET(710204822846046258).MEMBERS.CACHE")
+    // if(guild && guild.members.cache.get('425792318562369536')){
+    //         scheduledMessage = new cron.CronJob('00 25 18 * * 6', () => {
+    //             guild.member.cache.get('425792318562369536').send("test").then(() => bot.destroy());
+    //         });
+    //         scheduledMessage.start()
+    //         console.log(scheduledMessage)
+    // } else {
+    //     console.log("nope");
+    //     console.log(guild.member.cache)
+    //     console.log(guild)
+        
+    //     //if the bot doesn't have guild with the id guildid
+    //     // or if the guild doesn't have the channel with id channelid
+    // }
+    // bot.destroy();
 
+});
 
 
 bot.login(process.env.SAYAKA_BOT_TOKEN);
