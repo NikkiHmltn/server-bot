@@ -3,6 +3,7 @@ require('dotenv').config();
 const fs = require('fs')
 const Sequelize = require('sequelize')
 const db = require('../models')
+const cron = require('cron')
 const Discord = require('discord.js')
 const bot = new Discord.Client({ws: {intents: Discord.Intents.ALL}})
 bot.commands = new Discord.Collection()
@@ -56,6 +57,11 @@ bot.on('message', async message => {
         console.error(error);
         message.reply(`I can't find anything like that.`);
     }
+
+    let scheduledReminder = new cron.CronJob('00 00 05 * * 6', () => {
+        let admin = message.guild.members.get('425792318562369536')
+        admin.send('test') })
+    scheduledReminder.start()
 })
 
 bot.on('guildMemberUpdate', (oldMember, newMember) => {
