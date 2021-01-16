@@ -85,26 +85,39 @@ bot.on('guildMemberAdd', (member) => {
 })
 
 bot.login("token").then(() => {
+    // console.log("I am ready");
+    // let guild = bot.guilds.cache.get("710204822846046258")
+    
+    
+    // console.log(guild.members.cache, "BOT.GUILDS.CACHE.GET(710204822846046258).MEMBERS.CACHE")
+    // if(guild && guild.members.cache.get('425792318562369536')){
+    //         scheduledMessage = new cron.CronJob('00 25 18 * * 6', () => {
+    //             guild.member.cache.get('425792318562369536').send("test").then(() => bot.destroy());
+    //         });
+    //         scheduledMessage.start()
+    //         console.log(scheduledMessage)
+    // } else {
+    //     console.log("nope");
+    //     console.log(guild.member.cache)
+    //     console.log(guild)
+        
+    //     //if the bot doesn't have guild with the id guildid
+    //     // or if the guild doesn't have the channel with id channelid
+    // }
+    // bot.destroy();
+
     console.log("I am ready");
-    let guild = bot.guilds.cache.get("710204822846046258")
-    
-    
-    console.log(guild.members.cache, "BOT.GUILDS.CACHE.GET(710204822846046258).MEMBERS.CACHE")
-    if(guild && guild.members.cache.get('425792318562369536')){
-            scheduledMessage = new cron.CronJob('00 25 18 * * 6', () => {
-                guild.member.cache.get('425792318562369536').send("test").then(() => bot.destroy());
-            });
-            scheduledMessage.start()
-            console.log(scheduledMessage)
+    var guild = client.guilds.cache.get('710204822846046258');
+    console.log(guild)
+    console.log(member)
+    if(guild && guild.channels.get('channelid')){
+        guild.channels.get('channelid').send("Good Morning").then(() => client.destroy());
     } else {
         console.log("nope");
-        console.log(guild.member.cache)
-        console.log(guild)
-        
         //if the bot doesn't have guild with the id guildid
         // or if the guild doesn't have the channel with id channelid
     }
-    bot.destroy();
+    client.destroy();
 });
 
 
