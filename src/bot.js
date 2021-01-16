@@ -107,17 +107,17 @@ bot.login("token").then(() => {
     // bot.destroy();
 
     console.log("I am ready");
-    var guild = client.guilds.cache.get('710204822846046258');
+    var guild = bot.guilds.cache.get('710204822846046258');
     console.log(guild)
     console.log(member)
     if(guild && guild.channels.get('channelid')){
-        guild.channels.get('channelid').send("Good Morning").then(() => client.destroy());
+        guild.channels.get('channelid').send("Good Morning").then(() => bot.destroy());
     } else {
         console.log("nope");
         //if the bot doesn't have guild with the id guildid
         // or if the guild doesn't have the channel with id channelid
     }
-    client.destroy();
+    bot.destroy();
 });
 
 
