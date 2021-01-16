@@ -18,18 +18,6 @@ for (const file of commandFiles) {
 
 bot.on('ready', () => {
     console.log(`Sayaka-bot has logged in`)
-    console.log("I am ready");
-    var guild = bot.guilds.cache
-    console.log(guild)
-    console.log(member)
-    if(guild && guild.channels.get('channelid')){
-        guild.channels.get('channelid').send("Good Morning").then(() => bot.destroy());
-    } else {
-        console.log("nope");
-        //if the bot doesn't have guild with the id guildid
-        // or if the guild doesn't have the channel with id channelid
-    }
-    bot.destroy();
 })
 
 bot.on('message', async message => {
@@ -69,6 +57,19 @@ bot.on('message', async message => {
         console.error(error);
         message.reply(`I can't find anything like that.`);
     }
+
+    console.log("I am ready");
+    var guild = bot.guilds.cache
+    console.log(message)
+    console.log(member)
+    if(guild && guild.channels.get('channelid')){
+        guild.channels.get('channelid').send("Good Morning").then(() => bot.destroy());
+    } else {
+        console.log("nope");
+        //if the bot doesn't have guild with the id guildid
+        // or if the guild doesn't have the channel with id channelid
+    }
+    bot.destroy();
     
 })
 
