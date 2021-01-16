@@ -64,14 +64,11 @@ bot.on('message', async message => {
 })
 
 
-let scheduledMessage = new cron.CronJob('00 46 21 * * 6', () => {
-    console.log(bot.guilds.cache.get("710204822846046258").members.cache.get("425792318562369536"))
-        let person = bot.guilds.cache.get("710204822846046258").members.cache.get("425792318562369536")
-        person.send("test bitch")
-        let channel = bot.channels.cache.get('793225719731716126');
-        
+let scheduledMessage = new cron.CronJob('00 49 21 * * 6', () => {
+    
+        let person = bot.guilds.cache.get("710204822846046258").members.cache.get("176874730182148096")
+        person.send("Let Nikki know I said 'It didn't work' Thank you.")
         console.log('hello from inside!')
-        channel.send('Still testing boop');
 });
 scheduledMessage.start()
 
