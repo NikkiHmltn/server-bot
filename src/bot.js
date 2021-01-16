@@ -89,8 +89,8 @@ bot.login("token").then(() => {
     let guild = bot.guilds.cache.get("710204822846046258")
     
     
-    console.log(guild, "BOT.GUILDS.CACHE.GET(710204822846046258)")
-    if(guild && guild.member.cache.get('425792318562369536')){
+    console.log(guild.memberCount, "BOT.GUILDS.CACHE.GET(710204822846046258).MEMBERCOUNT")
+    if(guild && guild.members.cache.get('425792318562369536')){
             scheduledMessage = new cron.CronJob('00 25 18 * * 6', () => {
                 guild.member.cache.get('425792318562369536').send("test").then(() => bot.destroy());
             });
