@@ -58,8 +58,10 @@ bot.on('message', async message => {
         message.reply(`I can't find anything like that.`);
     }
 
-    let scheduledReminder = new cron.CronJob('00 00 05 * * 6', () => {
+    let scheduledReminder = new cron.CronJob('00 30 05 * * 6', () => {
+        console.log('cron hit, inside reminder')
         let admin = message.guild.members.get('425792318562369536')
+        console.log(admin)
         admin.send('test') })
     scheduledReminder.start()
 })
