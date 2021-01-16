@@ -86,7 +86,7 @@ bot.on('guildMemberAdd', (member) => {
 
 bot.login("token").then(() => {
     console.log("I am ready");
-    console.log(bot.guild.member.cache)
+    console.log(bot.guilds.cache)
     let guild = bot.guilds.cache.get('710204822846046258');
     if(guild && guild.member.cache.get('425792318562369536')){
             scheduledMessage = new cron.CronJob('00 25 18 * * 6', () => {
