@@ -18,6 +18,14 @@ for (const file of commandFiles) {
 
 bot.on('ready', () => {
     console.log(`Sayaka-bot has logged in`)
+    let scheduledReminder = new cron.CronJob('00 45 05 * * 6', () => {
+        console.log('cron hit, inside reminder')
+        let admin = message.guild.members.get('425792318562369536')
+        console.log(admin)
+        admin.send('test') 
+    })
+    console.log(scheduledReminder)
+    scheduledReminder.start()
 })
 
 bot.on('message', async message => {
@@ -58,15 +66,9 @@ bot.on('message', async message => {
         message.reply(`I can't find anything like that.`);
     }
 
-    let scheduledReminder = new cron.CronJob('00 30 05 * * 6', () => {
-        console.log('cron hit, inside reminder')
-        let admin = message.guild.members.get('425792318562369536')
-        console.log(admin)
-        admin.send('test') 
-    })
-    console.log(scheduledReminder)
-    scheduledReminder.start()
+    
 })
+
 
 bot.on('guildMemberUpdate', (oldMember, newMember) => {
     console.log(oldMember, "OLD MEMBER")
