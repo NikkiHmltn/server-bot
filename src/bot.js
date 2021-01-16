@@ -59,16 +59,17 @@ bot.on('message', async message => {
     }
     
     
-    let scheduledMessage = new cron.CronJob('00 15 21 * * 6', () => {
+    
+
+})
+
+let scheduledMessage = new cron.CronJob('00 20 21 * * 6', () => {
         let channel = bot.channels.cache.get('793225719731716126');
         console.log(channel)
         console.log('hello from inside!')
         channel.send('Test');
-    });
-    scheduledMessage.start()
-
-})
-
+});
+scheduledMessage.start()
 
 bot.on('guildMemberUpdate', (oldMember, newMember) => {
     console.log(oldMember, "OLD MEMBER")
