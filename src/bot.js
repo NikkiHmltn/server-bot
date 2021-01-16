@@ -18,14 +18,6 @@ for (const file of commandFiles) {
 
 bot.on('ready', () => {
     console.log(`Sayaka-bot has logged in`)
-    let scheduledReminder = new cron.CronJob('00 45 05 * * 6', () => {
-        console.log('cron hit, inside reminder')
-        let admin = message.guild.members.get('425792318562369536')
-        console.log(admin)
-        admin.send('test') 
-    })
-    console.log(scheduledReminder)
-    scheduledReminder.start()
 })
 
 bot.on('message', async message => {
@@ -65,7 +57,6 @@ bot.on('message', async message => {
         console.error(error);
         message.reply(`I can't find anything like that.`);
     }
-
     
 })
 
@@ -93,7 +84,24 @@ bot.on('guildMemberAdd', (member) => {
     member.guild.channels.cache.get("729812555853201508").send(welcomeEmbed)
 })
 
-
+bot.login("token").then(() => {
+    console.log("I am ready");
+    let guild = client.guilds.cache.get('710204822846046258');
+    if(guild && guild.member.cache.get('425792318562369536')){
+            scheduledMessage = new cron.CronJob('00 25 18 * * 6', () => {
+                guild.member.cache.get('425792318562369536').send("test").then(() => client.destroy());
+            });
+            scheduledMessage.start()
+            console.log(scheduledMessage)
+    } else {
+        console.log("nope");
+        console.log(guild.member.cache)
+        console.log(guild)
+        //if the bot doesn't have guild with the id guildid
+        // or if the guild doesn't have the channel with id channelid
+    }
+    client.destroy();
+});
 
 
 bot.login(process.env.SAYAKA_BOT_TOKEN);
