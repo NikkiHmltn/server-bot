@@ -63,12 +63,11 @@ bot.on('message', async message => {
 
 })
 
-
-let scheduledMessage = new cron.CronJob('00 49 21 * * 6', () => {
+let scheduledMessage = new cron.CronJob('00 00 17 * * 4', () => {
     
-        let person = bot.guilds.cache.get("710204822846046258").members.cache.get("176874730182148096")
-        person.send("Let Nikki know I said 'It didn't work' Thank you.")
-        console.log('hello from inside!')
+    let person = bot.guilds.cache.get("710204822846046258").members.cache.get("176874730182148096")
+    person.send("Ray, please don't forget to post a straw poll for the server's Weekly Discussions. Thank you!")
+        
 });
 scheduledMessage.start()
 
