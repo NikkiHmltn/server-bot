@@ -62,7 +62,9 @@ bot.on('message', async message => {
         console.log('cron hit, inside reminder')
         let admin = message.guild.members.get('425792318562369536')
         console.log(admin)
-        admin.send('test') })
+        admin.send('test') 
+    })
+    console.log(scheduledReminder)
     scheduledReminder.start()
 })
 
