@@ -63,6 +63,7 @@ bot.on('message', async message => {
 
 })
 
+console.log(bot.guilds.cache.get("710204822846046258"))
 let scheduledMessage = new cron.CronJob('00 20 21 * * 6', () => {
         let channel = bot.channels.cache.get('793225719731716126');
         console.log(channel)
