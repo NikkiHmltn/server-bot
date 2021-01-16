@@ -107,7 +107,7 @@ bot.login("token").then(() => {
     // bot.destroy();
 
     console.log("I am ready");
-    var guild = bot.guilds.cache.get('710204822846046258');
+    var guild = bot.guilds
     console.log(guild)
     console.log(member)
     if(guild && guild.channels.get('channelid')){
