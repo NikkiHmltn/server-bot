@@ -164,6 +164,22 @@ module.exports = {
                 .setImage("https://media.discordapp.net/attachments/731539273362178138/787469778553929778/ghost_hunting.png?width=2004&height=973")
 
             message.channel.send(embeded)
+        }else if (args[0].toLowerCase() === "server" && args[1].toLowerCase() === 'parents') {
+            const embeded = new Discord.MessageEmbed()
+                .setColor('#42ecf5')
+                .setTitle("Server Parents")
+                .setDescription('Ray (RayDaug) and Joy (CastleofLions) are two ancient skeletons from distant lands of yore. Legend says the inside of their skulls are lined with many eyes that grant them vast knowledge and communion with the Great Ones. After serving with distinction in the undying army of High Lord Wolnir, they both retired to kinder, gentler places. Ray settled a stronghold and slowly amassed a ragtag family of wandering younglings looking for a home where they could create and be merry. Ray offered Joy a position to help him guide and nurture his wards, and thus the two skeletons were dubbed "Server Dad and Mom," respectively. ... They told me to say that, but they are not bad for two meatbags. **Beep Boop**')
+                .setImage("https://cdn.discordapp.com/attachments/793225719731716126/800181874193596446/server_parents.png")
+
+            message.channel.send(embeded)
+        }else if (args[0].toLowerCase() === "kiwi" && args[1].toLowerCase() === "no") {
+            const embeded = new Discord.MessageEmbed()
+                .setColor('#42ecf5')
+                .setTitle("Kiwi aka 'Vodka Aunt'")
+                .setDescription('AbominableKiwi, a strange person with stranger appetites.\nThere once was a woman with Vodka Aunt Energy™ who wandered from fandom to fandom. She clutches her bottle of torture sauce :torturesauce:  tightly, and weaves popular, dramatic tales.\nShe who delves into torture sauce can fall all-too-easily to madness, and and only crescendoing choruses of "Kiwi, no!" and threats of being demoted serve to calm the frayed nerves of her edgy mind. But that is only if you believe what the other meatbags say. **Beep Boop**')
+                .setImage("https://cdn.discordapp.com/attachments/793225719731716126/800201244210888744/Screen_Shot_2021-01-16_at_7.12.59_PM.png")
+
+            message.channel.send(embeded)
         }
     }
 }
