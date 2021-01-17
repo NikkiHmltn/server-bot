@@ -176,7 +176,7 @@ module.exports = {
             const embeded = new Discord.MessageEmbed()
                 .setColor('#42ecf5')
                 .setTitle("Kiwi aka 'Vodka Aunt'")
-                .setDescription('AbominableKiwi, a strange person with stranger appetites.\nThere once was a woman with Vodka Aunt Energy™ who wandered from fandom to fandom. She clutches her bottle of torture sauce :torturesauce:  tightly, and weaves popular, dramatic tales.\nShe who delves into torture sauce can fall all-too-easily to madness, and and only crescendoing choruses of "Kiwi, no!" and threats of being demoted serve to calm the frayed nerves of her edgy mind. But that is only if you believe what the other meatbags say. **Beep Boop**')
+                .setDescription('AbominableKiwi, a strange person with stranger appetites.\n\nThere once was a woman with Vodka Aunt Energy™ who wandered from fandom to fandom. She clutches her bottle of torture sauce <:torturesauce:751240997798805514> tightly, and weaves popular, dramatic tales.\n\nShe who delves into torture sauce can fall all-too-easily to madness, and and only crescendoing choruses of "Kiwi, no!" and threats of being demoted serve to calm the frayed nerves of her edgy mind. But that is only if you believe what the other meatbags say. **Beep Boop**')
                 .setImage("https://cdn.discordapp.com/attachments/793225719731716126/800201244210888744/Screen_Shot_2021-01-16_at_7.12.59_PM.png")
 
             message.channel.send(embeded)
