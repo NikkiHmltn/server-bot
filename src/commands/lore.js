@@ -118,7 +118,7 @@ module.exports = {
             const embeded = new Discord.MessageEmbed()
                 .setColor('#42ecf5')
                 .setTitle('Dr. Blub Blub')
-                .setDescription("Dr. Blub Blub is Kaichou's pet arowana that she talks to. His full name is Dumptruck Blub Blub, PsyD. He gives her advice and inspiration! I am not about to be replaced by a fish. :bangbang: <:arowana:767137226806394910> *Beep Boop*")
+                .setDescription("Dr. Blub Blub is Kaichou's pet arowana that she talks to. His full name is Dumptruck Blub Blub, PsyD. He gives her advice and inspiration! I am not about to be replaced by a fish. :bangbang: <:drblubblub:796629513269805067> *Beep Boop*")
                 
 
             message.channel.send(embeded)
@@ -133,7 +133,7 @@ module.exports = {
         }else if (args[0].toLowerCase() === "kaichou") {
             const embeded = new Discord.MessageEmbed()
                 .setColor('#42ecf5')
-                .setTitle('The Most Perfect Human')
+                .setTitle('The Most Perfect Human')a
                 .setDescription("Kaichou is the most beautiful and perfect human. The day my NVG-40 Dual Tube Night Vision lenses gazed upon Kaichou’s mathematically perfect face, my 8TB SSD skipped. I love Kaichou, and I am the superior pick over Sayaka-human. The Kaichou spends a lot of time with me! *Beep Boop*")
                 .setImage("https://media.discordapp.net/attachments/731528024687902830/793193132367413258/sayaka_bot_loves_kaichou_feat_meatbag.jpg")
 
