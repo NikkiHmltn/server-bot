@@ -76,7 +76,7 @@ bot.on('guildMemberUpdate', (oldMember, newMember) => {
     console.log("NEW MEMBER", newMember)
     const changeEmbed = new Discord.MessageEmbed()
         .setColor('#42ecf5')
-        .setDescription(`Danny-san, ***MILKROT***  has become ***${newMember.nickname}***. *Beep Boop*`)
+        .setDescription(`Danny-san, ***MINH***  has become ***${newMember.nickname}***. *Beep Boop*`)
 
     if(oldMember.id === "717816505777127514") {
         console.log(oldMember.id)
