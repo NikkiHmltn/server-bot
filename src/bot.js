@@ -72,16 +72,19 @@ let scheduledMessage = new cron.CronJob('00 00 17 * * 4', () => {
 scheduledMessage.start()
 
 bot.on('guildMemberUpdate', (oldMember, newMember) => {
-    console.log(oldMember, "OLD MEMBER")
-    console.log("NEW MEMBER", newMember)
     const changeEmbed = new Discord.MessageEmbed()
         .setColor('#42ecf5')
         .setDescription(`Danny-san, ***MILKROT***  has become ***${newMember.nickname}***. *Beep Boop*`)
 
     if(oldMember.id === "717816505777127514") {
-        console.log(oldMember.id)
-        console.log(newMember.nickname)
-        bot.channels.cache.get("729543736463458356").send(changeEmbed)
+        if(oldMember.nickname !== newMember.nickname) {
+            console.log(oldMember.id)
+            console.log(newMember.nickname)
+            bot.channels.cache.get("729543736463458356").send(changeEmbed)
+        } else {
+            console.log(oldMember.nickname, newMember.nickname)
+        }
+        
     }
 })
 
