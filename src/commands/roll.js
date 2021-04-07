@@ -4,7 +4,11 @@ module.exports = {
 	execute(message, args) {
 
         let number = Math.floor(Math.random() * ((24-1) +1) + 1)
-        console.log(number)
-        message.channel.send(`-dice sounds- ${number}`)
+        const embeded = new Discord.MessageEmbed()
+			.setColor('#42ecf5')
+			.setTitle('Roll D24')
+			.setDescription(`Kakegurui Mashou!\nYour number is **${number}**. *Beep Boop*`)
+			
+        message.channel.send(embeded)
 	},
 };
