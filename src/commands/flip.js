@@ -4,7 +4,7 @@ module.exports = {
 	execute(message, args) {
 
         function kakeguruiMashou() {
-            let number = Math.floor(Match.random() * 1)
+            let number = Math.floor(Math.random() * 1)
             console.log(number)
             if(number === 0){
                 message.channel.send('Kakegurui Mashou!\nHeads!');
