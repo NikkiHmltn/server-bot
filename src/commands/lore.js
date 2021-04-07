@@ -133,7 +133,7 @@ module.exports = {
         }else if (args[0].toLowerCase() === "kaichou") {
             const embeded = new Discord.MessageEmbed()
                 .setColor('#42ecf5')
-                .setTitle('The Most Perfect Human')
+                .setTitle('(Ɔ ˘⌣˘):hearts:Ｋａｉｃｈｏｕ:hearts:(˘⌣˘ C)')
                 .setDescription("Kaichou is the most beautiful and perfect human. The day my NVG-40 Dual Tube Night Vision lenses gazed upon Kaichou’s mathematically perfect face, my 8TB SSD skipped. I love Kaichou, and I am the superior pick over Sayaka-human. The Kaichou spends a lot of time with me! *Beep Boop*")
                 .setImage("https://media.discordapp.net/attachments/731528024687902830/793193132367413258/sayaka_bot_loves_kaichou_feat_meatbag.jpg")
 
