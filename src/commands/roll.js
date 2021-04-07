@@ -1,6 +1,6 @@
 module.exports = {
-	name: 'flip',
-	description: 'Flips a coin for heads or tails!',
+	name: 'roll',
+	description: 'Rolls a d24',
 	execute(message, args) {
 
         let number = Math.floor(Math.random() * ((24-1) +1) + 1)
