@@ -47,8 +47,8 @@ bot.on('message', async message => {
     let kakegurui = "kakegurui mashou"
     let smallKake = message.content.toLowerCase()
     if (smallKake.includes(kakegurui)) {
-        message.channel.send(`J̵̧̟̜̠̠̻̏̐A̴̢̧͓̙͉̱̹̠̗̓̓͑͂͜͝B̶̫͚̭̣̹̰̼̖̓̇͗͌̇̽̄͘͜A̷̲͚̞̅̓̄̑̀M̷̨̰̜̬͍̥̚I̴̢͍͈͕̘̲̲̮̪̬̓̆̈́̏̅̍͊̉̕ ̸̡̜̖͉̠͉̰̺̀̎̎̌̈́͊̈́̓͠Ỳ̴̗̘̲̮̳͑Ų̸͍̟̳̞͍̟̜͓̒̒̅͋̓͊Ḿ̶̨̟̠̦̲̮̣̬̘̊̿̈́ͅḘ̶͇̱͙̣̹̙̪͋̂̎̈́͌̃̃̕̚K̵̠͍̱̹̺̟̋̽̿O̵̹̩̠͉̱͖̜̰̽Ơ̶͈̪̺̮̗̗̜̝͉̾̾͜O̴̡̺͚̗̟͍͋̉̓̉Ö̵̧̨͈̜͚͓́̎̇̎͐̐̕͘͠Ò̵̢̧̱̣̮̠͖͈̍̔͘͜O̴̼͙̲͆͗͒̏̀̆͠ͅÖ̶̯́͆`, {
-            
+        message.channel.send(`\nJ̬̭̗̗̤̎͐͠ͅǍ̧͚̙͍̜̖͈̱̰͒ͨ̒B̧̠̤̺͚̃̚Ä̫̘̩̙̖̤̞̖͘M̢̘̹̪͂̓͌͊ͅI̛̩͖̙̻̗̔ ̢̟͈̮̹͓̌̎ͅY̜̪̜̳͚ͯ͌̊͟U̜̎ͧͣ͗̀ͅM̶̪̦͇̺̰̈̚Ẻ̢͈̟͍̻̘̰̤͓̉ͫK̵̥̤̻͓͇̦̯̅ͦ̊ͣO͓̠̩̙̖̯ͪ͞O̸̼̠ͬ̅ͥ̚Ő͚̖̝̽͡O̺͕͖̥͋̕O̢̩͓̱̜̯͍͓͋́ͪͅƠ̭̗̰̠͎͎̦ͫ̍O̪̜̝̭͈̅ͬͯͥ͟ͅ\n`, {
+
             files: ["https://media.discordapp.net/attachments/793225719731716126/829465510340329522/Screen_Shot_2021-04-07_at_2.19.07_PM.png?width=1822&height=1139"]
         })
 
