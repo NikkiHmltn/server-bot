@@ -5,7 +5,7 @@ const Sequelize = require('sequelize')
 const db = require('../models')
 const cron = require('cron')
 const Discord = require('discord.js')
-const {Attachment, RichEmbed} = require('discord.js')
+const {MessageAttachments} = require('discord.js')
 const bot = new Discord.Client({ws: {intents: Discord.Intents.ALL}})
 bot.commands = new Discord.Collection()
 const prefix = "!"
@@ -49,13 +49,9 @@ bot.on('message', async message => {
     let smallKake = message.content.toLowerCase()
     if (smallKake.includes(kakegurui)) {
 
-        const attachment = new Attachment('https://cdn.discordapp.com/attachments/793225719731716126/829538960900358215/JABAMI_YUMEKO_2.webm','yumeko.webm');
+        const attachment = new MessageAttachment('https://cdn.discordapp.com/attachments/793225719731716126/829538960900358215/JABAMI_YUMEKO_2.webm');
 
-        const embed = new RichEmbed()
-            .setTitle('**Test**')
-            .setImage('attachment://yumeko.webm') // Remove this line to show the attachment separately.
-
-        message.channel.send({ embed, files: [attachment] })
+        message.channel.send(attachment)
         .catch(console.error);
         // message.channel.send(`(つ◉益◉)つJABAMI YUMEKOOOOOOO`, {
 
