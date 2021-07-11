@@ -229,7 +229,7 @@ bot.on('guildMemberAdd', (member) => {
     member.guild.channels.cache.get("729812555853201508").send(welcomeEmbed)
 })
 
-bot.login("token").then(() => {
+bot.login(token).then(() => {
     // console.log("I am ready");
     // let guild = bot.guilds.cache.get("710204822846046258")
     
