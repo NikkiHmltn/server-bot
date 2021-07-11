@@ -9,6 +9,17 @@ const bot = new Discord.Client({ws: {intents: Discord.Intents.ALL}})
 bot.commands = new Discord.Collection()
 const prefix = "!"
 
+
+const puppeteer = require('puppeteer');
+const cheerio = require('cheerio');
+
+
+const birthdays = require('./birthdays.js')
+const bot = new Discord.Client({ws: {intents: Discord.Intents.ALL}})
+bot.commands = new Discord.Collection()
+const prefix = "!"
+const token = process.env['SAYAKA_BOT_TOKEN']
+
 const commandFiles = fs.readdirSync(__dirname + "/commands").filter(file => file.endsWith('.js'))
 
 for (const file of commandFiles) {
@@ -59,27 +70,140 @@ bot.on('message', async message => {
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const command = args.shift().toLowerCase();
 
-    if (!bot.commands.has(command)) return;
+  if (!bot.commands.has(command)) return;
 
-    try {
-        bot.commands.get(command).execute(message, args);
-    } catch (error) {
-        console.error(error);
-        message.reply(`I can't find anything like that.`);
-    }
-    
-    
-    
-
+  try {
+      bot.commands.get(command).execute(message, args);
+  } catch (error) {
+      console.error(error);
+      message.reply(`I can't find anything like that.`);
+  }
 })
 
-let scheduledMessage = new cron.CronJob('00 00 17 * * 4', () => {
+// let scheduledMessage = new cron.CronJob('00 00 17 * * 4', () => {
     
-    let person = bot.guilds.cache.get("710204822846046258").members.cache.get("176874730182148096")
-    person.send("Ray, please don't forget to post a straw poll for the server's Weekly Discussions. Thank you!")
+//     let person = bot.guilds.cache.get("710204822846046258").members.cache.get("176874730182148096")
+//     person.send("Ray, please don't forget to post a straw poll for the server's Weekly Discussions. Thank you!")
         
-});
-scheduledMessage.start()
+// });
+// scheduledMessage.start()
+
+
+let birthdayTest = new cron.CronJob('00 00 00 * * *', () => {
+  let channel = bot.channels.cache.get("731539273362178138");
+  let birthDates = birthdays.birthdays
+  birthDates.forEach(birthObj =>{
+    let date = birthObj.birthday
+    let dateMonth = date.getMonth()
+    let dateDay = date.getDay()
+    let currentDate = new Date()
+    let currentMonth = new Date().getMonth()
+    let currentDay = new Date().getDay()
+    if(dateMonth == currentMonth &&  dateDay == currentDay){
+      let person = birthObj.id
+      channel.send(`Happy Birthday <@${person}>! You have survived another solar cycle around the earth. Congratulations.`);
+    }
+  })
+},null, true, "America/New_York")
+birthdayTest.start()
+
+
+/*const ficScrape = async () => {
+    const newWorks = [];
+    console.log(newWorks, "1")
+    const browser = await puppeteer.launch({
+      headless: false,
+			args: [
+				'--allow-external-pages',
+				'--allow-third-party-modules',
+				'--data-reduction-proxy-http-proxies',
+				'--no-sandbox'
+			]
+    })
+    const page = await browser.newPage()
+    await page.goto("https://archiveofourown.org/tags/Igarashi%20Sayaka*s*Momobami%20Kirari/works");
+    const pageData = await page.evaluate(()=>{
+        return {
+            html: document.documentElement.innerHTML,
+            width: document.documentElement.clientWidth,
+            height: document.documentElement.clientHeight
+        }
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+
+    const $ = cheerio.load(pageData.html)
+    
+    const authors = ["DaughterOfTheKosmos", "AbominableKiwi", "MILKROT", "xXSintreatiesXx", "Salty_Bok_Choy", "wellthizizdeprezzing", "TwoStepsBehind", "KiraQuiz", "silversword", "drawanderlust", "RayDaug", "sharksncoldbrew", "lira777", "Dweebface", "VR_Silvers", "gata_mala", "nawaki", "NoxCounterspell", "Hiss", "TwoStepsBehind", "Uncleankle", "kirarisbitch", "Ladyjay1616", "LarkinUniverse", "MsArtheart"]
+
+    $("div[class='header module']").each((i, element) =>{
+        const author = $(element)
+            .find("h4")
+            .children("a").eq(1)
+            .text()
+        const time = $(element)
+            .find(".datetime")
+            .text()
+        const titleLink = $(element)
+            .find("h4")
+            .children("a").eq(0)
+            .attr("href")
+        let worksData = {
+            titleLink,
+            author, 
+            time,
+        }
+      .catch((err) => {
+        console.log(err)
+      })
+       //ao3 stores data in euro format dd mm yyyy get date now and change to euro format
+        let now = new Date()
+        let month = now.toLocaleString('default', {month: 'short'})
+        let euroDate = now.getDate() + " " + month + " " + now.getFullYear()
+        console.log(euroDate, "EURO", worksData.time, "WORKDATA")
+        //if euroDate and worksdata.time ==
+        if (euroDate == worksData.time) {
+            //then compare worksdata.author to a list of authors from server
+            for (let i = 0; i < authors.length; i++) {
+                if (worksData.author == authors[i]){
+                    //if they match, push title, link, author, and time up to an array
+                    newWorks.push(worksData)
+                }
+            }
+        }
+        //then have sayakabot push that array as an embed message 
+    })
+    await browser.close()
+    .catch((err) => {
+      
+    })
+    console.log(newWorks, "2")
+    if (newWorks.length !== 0){
+        for(let i = 0; i < newWorks.length; i++){
+            let now = new Date()
+            let month = now.toLocaleString('default', {month: 'short'})
+            let euroDate = now.getDate() + " " + month + " " + now.getFullYear()
+            if (newWorks[i].time !== euroDate) {
+                newWorks.splice(i, 1)
+            } else {
+                console.log("else length")
+                console.log(newWorks, "3")
+                // let linkHalf = newWorks[i].titleLink
+                // let channel = bot.channels.cache.get("710207967009439765");
+                // channel.send(`https://archiveofourown.org${linkHalf}`)
+            }
+         
+        }
+      }
+}
+
+let fanficScrape = new cron.CronJob('0 (put * here)/5 * * * *', () => {
+  ficScrape()
+})
+fanficScrape.start()*/
+
+
 
 bot.on('guildMemberUpdate', (oldMember, newMember) => {
     const changeEmbed = new Discord.MessageEmbed()
@@ -88,8 +212,6 @@ bot.on('guildMemberUpdate', (oldMember, newMember) => {
 
     if(oldMember.id === "717816505777127514") {
         if(oldMember.nickname !== newMember.nickname) {
-            console.log(oldMember.id)
-            console.log(newMember.nickname)
             bot.channels.cache.get("729543736463458356").send(changeEmbed)
         } else {
             console.log(oldMember.nickname, newMember.nickname)
