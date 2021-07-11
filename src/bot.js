@@ -107,10 +107,9 @@ const ficScrape = async () => {
     const newWorks = [];
     console.log(newWorks, "1")
     const browser = await puppeteer.launch({
-      
 			args: [
-                '--disable-setuid-sandbox',
-				'--no-sandbox'
+				'--no-sandbox',
+                
 			]
     })
     const page = await browser.newPage()
