@@ -107,11 +107,9 @@ const ficScrape = async () => {
     const newWorks = [];
     console.log(newWorks, "1")
     const browser = await puppeteer.launch({
-      headless: false,
+      
 			args: [
-				'--allow-external-pages',
-				'--allow-third-party-modules',
-				'--data-reduction-proxy-http-proxies',
+                '--disable-setuid-sandbox',
 				'--no-sandbox'
 			]
     })
