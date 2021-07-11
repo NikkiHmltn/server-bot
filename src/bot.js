@@ -8,16 +8,11 @@ const Discord = require('discord.js')
 const bot = new Discord.Client({ws: {intents: Discord.Intents.ALL}})
 bot.commands = new Discord.Collection()
 const prefix = "!"
-
-
 const puppeteer = require('puppeteer');
 const cheerio = require('cheerio');
 
 
 const birthdays = require('./birthdays.js')
-const bot = new Discord.Client({ws: {intents: Discord.Intents.ALL}})
-bot.commands = new Discord.Collection()
-const prefix = "!"
 const token = process.env['SAYAKA_BOT_TOKEN']
 
 const commandFiles = fs.readdirSync(__dirname + "/commands").filter(file => file.endsWith('.js'))
@@ -108,7 +103,7 @@ let birthdayTest = new cron.CronJob('00 00 00 * * *', () => {
 birthdayTest.start()
 
 
-/*const ficScrape = async () => {
+const ficScrape = async () => {
     const newWorks = [];
     console.log(newWorks, "1")
     const browser = await puppeteer.launch({
@@ -198,10 +193,10 @@ birthdayTest.start()
       }
 }
 
-let fanficScrape = new cron.CronJob('0 (put * here)/5 * * * *', () => {
+let fanficScrape = new cron.CronJob('0 */5 * * * *', () => {
   ficScrape()
 })
-fanficScrape.start()*/
+fanficScrape.start()
 
 
 
