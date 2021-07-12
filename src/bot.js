@@ -151,9 +151,21 @@ const ficScrape = async () => {
             for (let i = 0; i < authors.length; i++) {
                 if (worksData.author == authors[i]){
                     if (newWorks.length !== 0 ){
-                        for(let i=0; i < worksData.length; i++) {
-                            if(worksData[i].date === newWorks.date && worksData[i].author == newWorks.author && worksData[i].titleLink == newWorks.titleLink){
+                        for(let i=0; i < newWorks.length; i++) {
+                            if(worksData.date === newWorks[i].date && worksData.author == newWorks[i].author && worksData.titleLink == newWorks[i].titleLink){
                                 console.log("before return")
+                                let now = new Date()
+                                let month = now.toLocaleString('default', {month: 'short'})
+                                let euroDate = now.getDate() + " " + month + " " + now.getFullYear()
+                                if (newWorks[i].time !== euroDate) {
+                                    console.log("splice here")
+                                    newWorks.splice(i, 1)
+                                } else {
+                                    console.log("post here 1")
+                                    // let linkHalf = newWorks[i].titleLink
+                                    // let channel = bot.channels.cache.get("710207967009439765");
+                                    // channel.send(`https://archiveofourown.org${linkHalf}`)
+                                }
                                 return;
                             } else {
                                 console.log("else before push in big loop")
@@ -161,36 +173,18 @@ const ficScrape = async () => {
                             }
                         }
                     } else {
-                        console.log("new works length is 0")
+                        console.log("post here 2")
+                                    // let linkHalf = newWorks[i].titleLink
+                                    // let channel = bot.channels.cache.get("710207967009439765");
+                                    // channel.send(`https://archiveofourown.org${linkHalf}`)
                         newWorks.push(worksData)
                     }
-                    
-                    //if they match, push title, link, author, and time up to an array
-                    
+                                        
                 }
             }
         }
-        //then have sayakabot push that array as an embed message 
     })
-    console.log("before last if statement", newWorks)
-    
-    if (newWorks.length !== 0){
-        for(let i = 0; i < newWorks.length; i++){
-            let now = new Date()
-            let month = now.toLocaleString('default', {month: 'short'})
-            let euroDate = now.getDate() + " " + month + " " + now.getFullYear()
-            if (newWorks[i].time !== euroDate) {
-                console.log("splice here")
-                newWorks.splice(i, 1)
-            } else {
-                console.log("post here")
-                // let linkHalf = newWorks[i].titleLink
-                // let channel = bot.channels.cache.get("710207967009439765");
-                // channel.send(`https://archiveofourown.org${linkHalf}`)
-            }
-         
-        }
-      }
+    console.log("before close", newWorks)
       await browser.close()
 }
 
