@@ -172,6 +172,7 @@ const ficScrape = async () => {
         }
         //then have sayakabot push that array as an embed message 
     })
+    console.log("before last if statement", newWorks)
     
     if (newWorks.length !== 0){
         for(let i = 0; i < newWorks.length; i++){
@@ -179,6 +180,7 @@ const ficScrape = async () => {
             let month = now.toLocaleString('default', {month: 'short'})
             let euroDate = now.getDate() + " " + month + " " + now.getFullYear()
             if (newWorks[i].time !== euroDate) {
+                console.log("splice here")
                 newWorks.splice(i, 1)
             } else {
                 console.log("post here")
