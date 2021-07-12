@@ -181,9 +181,10 @@ const ficScrape = async () => {
             if (newWorks[i].time !== euroDate) {
                 newWorks.splice(i, 1)
             } else {
-                let linkHalf = newWorks[i].titleLink
-                let channel = bot.channels.cache.get("710207967009439765");
-                channel.send(`https://archiveofourown.org${linkHalf}`)
+                console.log("post here")
+                // let linkHalf = newWorks[i].titleLink
+                // let channel = bot.channels.cache.get("710207967009439765");
+                // channel.send(`https://archiveofourown.org${linkHalf}`)
             }
          
         }
