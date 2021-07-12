@@ -167,9 +167,9 @@ const ficScrape = async () => {
                         }
                     } else {
                         console.log("post here 2")
-                                    // let linkHalf = newWorks[i].titleLink
-                                    // let channel = bot.channels.cache.get("710207967009439765");
-                                    // channel.send(`https://archiveofourown.org${linkHalf}`)
+                        let linkHalf = newWorks[i].titleLink
+                        let channel = bot.channels.cache.get("710207967009439765");
+                        channel.send(`https://archiveofourown.org${linkHalf}`)
                         newWorks.push(worksData)
                     }
                                         
@@ -181,7 +181,7 @@ const ficScrape = async () => {
       await browser.close()
 }
 
-let fanficScrape = new cron.CronJob('0 */5 * * * *', () => {
+let fanficScrape = new cron.CronJob('0 0,6,12,18 * * *', () => {
   ficScrape()
 })
 fanficScrape.start()
