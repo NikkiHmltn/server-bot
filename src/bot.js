@@ -105,17 +105,14 @@ birthdayTest.start()
 const newWorks = [];
 const ficScrape = async () => {
     
-    console.log(newWorks, "1")
     const browser = await puppeteer.launch({
 			args: [
 				'--no-sandbox',
-                
 			]
     })
     const page = await browser.newPage()
     await page.goto("https://archiveofourown.org/tags/Igarashi%20Sayaka*s*Momobami%20Kirari/works");
     const pageData = await page.evaluate(()=>{
-        console.log("evaulate")
         return {
             html: document.documentElement.innerHTML,
             width: document.documentElement.clientWidth,
@@ -123,13 +120,11 @@ const ficScrape = async () => {
         }
     })
     
-
     const $ = cheerio.load(pageData.html)
     
     const authors = ["DaughterOfTheKosmos", "AbominableKiwi", "MILKROT", "xXSintreatiesXx", "Salty_Bok_Choy", "wellthizizdeprezzing", "TwoStepsBehind", "KiraQuiz", "silversword", "drawanderlust", "RayDaug", "sharksncoldbrew", "lira777", "Dweebface", "VR_Silvers", "gata_mala", "nawaki", "NoxCounterspell", "Hiss", "TwoStepsBehind", "Uncleankle", "kirarisbitch", "Ladyjay1616", "LarkinUniverse", "MsArtheart"]
 
     $("div[class='header module']").each((i, element) =>{
-        console.log("each")
         const author = $(element)
             .find("h4")
             .children("a").eq(1)
@@ -151,23 +146,33 @@ const ficScrape = async () => {
         let month = now.toLocaleString('default', {month: 'short'})
         let euroDate = now.getDate() + " " + month + " " + now.getFullYear()
         //if euroDate and worksdata.time ==
-        console.log("before date comparison", euroDate, worksData.time)
         if (euroDate == worksData.time) {
-            console.log("inside comparison")
             //then compare worksdata.author to a list of authors from server
             for (let i = 0; i < authors.length; i++) {
-                console.log("inside comparison look")
                 if (worksData.author == authors[i]){
-                    console.log("if worksdata is author i")
+                    if (newWorks.length !== 0 ){
+                        for(let i=0; i < worksData.length; i++) {
+                            if(worksData[i].date === newWorks.date && worksData[i].author == newWorks.author && worksData[i].titleLink == newWorks.titleLink){
+                                console.log("before return")
+                                return;
+                            } else {
+                                console.log("else before push in big loop")
+                                newWorks.push(worksData)
+                            }
+                        }
+                    } else {
+                        console.log("new works length is 0")
+                        newWorks.push(worksData)
+                    }
+                    
                     //if they match, push title, link, author, and time up to an array
-                    newWorks.push(worksData)
+                    
                 }
             }
         }
         //then have sayakabot push that array as an embed message 
     })
     
-    console.log(newWorks, "2", newWorks.length, "length <")
     if (newWorks.length !== 0){
         for(let i = 0; i < newWorks.length; i++){
             let now = new Date()
@@ -176,16 +181,13 @@ const ficScrape = async () => {
             if (newWorks[i].time !== euroDate) {
                 newWorks.splice(i, 1)
             } else {
-                console.log("else length")
-                console.log(newWorks, "3")
-                // let linkHalf = newWorks[i].titleLink
-                // let channel = bot.channels.cache.get("710207967009439765");
-                // channel.send(`https://archiveofourown.org${linkHalf}`)
+                let linkHalf = newWorks[i].titleLink
+                let channel = bot.channels.cache.get("710207967009439765");
+                channel.send(`https://archiveofourown.org${linkHalf}`)
             }
          
         }
       }
-      console.log("before close")
       await browser.close()
 }
 
