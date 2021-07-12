@@ -115,6 +115,7 @@ const ficScrape = async () => {
     const page = await browser.newPage()
     await page.goto("https://archiveofourown.org/tags/Igarashi%20Sayaka*s*Momobami%20Kirari/works");
     const pageData = await page.evaluate(()=>{
+        console.log("evaulate")
         return {
             html: document.documentElement.innerHTML,
             width: document.documentElement.clientWidth,
@@ -128,6 +129,7 @@ const ficScrape = async () => {
     const authors = ["DaughterOfTheKosmos", "AbominableKiwi", "MILKROT", "xXSintreatiesXx", "Salty_Bok_Choy", "wellthizizdeprezzing", "TwoStepsBehind", "KiraQuiz", "silversword", "drawanderlust", "RayDaug", "sharksncoldbrew", "lira777", "Dweebface", "VR_Silvers", "gata_mala", "nawaki", "NoxCounterspell", "Hiss", "TwoStepsBehind", "Uncleankle", "kirarisbitch", "Ladyjay1616", "LarkinUniverse", "MsArtheart"]
 
     $("div[class='header module']").each((i, element) =>{
+        console.log("each")
         const author = $(element)
             .find("h4")
             .children("a").eq(1)
@@ -149,10 +151,14 @@ const ficScrape = async () => {
         let month = now.toLocaleString('default', {month: 'short'})
         let euroDate = now.getDate() + " " + month + " " + now.getFullYear()
         //if euroDate and worksdata.time ==
+        console.log("before date comparison", euroDate, worksdata.time)
         if (euroDate == worksData.time) {
+            console.log("inside comparison")
             //then compare worksdata.author to a list of authors from server
             for (let i = 0; i < authors.length; i++) {
+                console.log("inside comparison look")
                 if (worksData.author == authors[i]){
+                    console.log("if worksdata is author i")
                     //if they match, push title, link, author, and time up to an array
                     newWorks.push(worksData)
                 }
@@ -161,7 +167,7 @@ const ficScrape = async () => {
         //then have sayakabot push that array as an embed message 
     })
     
-    console.log(newWorks, "2")
+    console.log(newWorks, "2", newWorks.length, "length <")
     if (newWorks.length !== 0){
         for(let i = 0; i < newWorks.length; i++){
             let now = new Date()
