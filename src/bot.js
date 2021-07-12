@@ -153,22 +153,14 @@ const ficScrape = async () => {
                     if (newWorks.length !== 0 ){
                         for(let i=0; i < newWorks.length; i++) {
                             if(worksData.date === newWorks[i].date && worksData.author == newWorks[i].author && worksData.titleLink == newWorks[i].titleLink){
-                                console.log("before return")
-                                let now = new Date()
-                                let month = now.toLocaleString('default', {month: 'short'})
-                                let euroDate = now.getDate() + " " + month + " " + now.getFullYear()
-                                if (newWorks[i].time !== euroDate) {
-                                    console.log("splice here")
-                                    newWorks.splice(i, 1)
-                                } else {
-                                    console.log("post here 1")
-                                    // let linkHalf = newWorks[i].titleLink
-                                    // let channel = bot.channels.cache.get("710207967009439765");
-                                    // channel.send(`https://archiveofourown.org${linkHalf}`)
-                                }
+                                console.log("before return they all match")
                                 return;
-                            } else {
-                                console.log("else before push in big loop")
+                            } else if (worksData.date !== newWorks[i].date) {
+                                console.log("before splice dates dont match")
+                                newWorks.splice(i, 1)
+                                return;
+                            } else{
+                                console.log("post will be here to server")
                                 newWorks.push(worksData)
                             }
                         }
