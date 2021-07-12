@@ -121,9 +121,7 @@ const ficScrape = async () => {
             height: document.documentElement.clientHeight
         }
     })
-    .catch((err) => {
-      console.log(err)
-    })
+    
 
     const $ = cheerio.load(pageData.html)
     
@@ -146,9 +144,7 @@ const ficScrape = async () => {
             author, 
             time,
         }
-      .catch((err) => {
-        console.log(err)
-      })
+     
        //ao3 stores data in euro format dd mm yyyy get date now and change to euro format
         let now = new Date()
         let month = now.toLocaleString('default', {month: 'short'})
@@ -167,9 +163,7 @@ const ficScrape = async () => {
         //then have sayakabot push that array as an embed message 
     })
     await browser.close()
-    .catch((err) => {
-      
-    })
+    
     console.log(newWorks, "2")
     if (newWorks.length !== 0){
         for(let i = 0; i < newWorks.length; i++){
