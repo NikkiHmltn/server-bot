@@ -185,6 +185,7 @@ const ficScrape = async () => {
          
         }
       }
+      
       await browser.close()
 }
 
