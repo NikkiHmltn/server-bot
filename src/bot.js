@@ -102,9 +102,9 @@ let birthdayTest = new cron.CronJob('00 00 00 * * *', () => {
 },null, true, "America/New_York")
 birthdayTest.start()
 
-
+const newWorks = [];
 const ficScrape = async () => {
-    const newWorks = [];
+    
     console.log(newWorks, "1")
     const browser = await puppeteer.launch({
 			args: [
@@ -144,12 +144,10 @@ const ficScrape = async () => {
             author, 
             time,
         }
-     
        //ao3 stores data in euro format dd mm yyyy get date now and change to euro format
         let now = new Date()
         let month = now.toLocaleString('default', {month: 'short'})
         let euroDate = now.getDate() + " " + month + " " + now.getFullYear()
-        console.log(euroDate, "EURO", worksData.time, "WORKDATA")
         //if euroDate and worksdata.time ==
         if (euroDate == worksData.time) {
             //then compare worksdata.author to a list of authors from server
@@ -162,7 +160,6 @@ const ficScrape = async () => {
         }
         //then have sayakabot push that array as an embed message 
     })
-    await browser.close()
     
     console.log(newWorks, "2")
     if (newWorks.length !== 0){
@@ -182,6 +179,7 @@ const ficScrape = async () => {
          
         }
       }
+      await browser.close()
 }
 
 let fanficScrape = new cron.CronJob('0 */5 * * * *', () => {
