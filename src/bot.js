@@ -151,6 +151,7 @@ const ficScrape = async () => {
             for (let i = 0; i < authors.length; i++) {
                 if (worksData.author == authors[i]){
                     if (newWorks.length !== 0 ){
+                        console.log("before for loop works is not 0")
                         for(let i=0; i < newWorks.length; i++) {
                             if(worksData.date === newWorks[i].date && worksData.author == newWorks[i].author && worksData.titleLink == newWorks[i].titleLink){
                                 console.log("before return they all match")
