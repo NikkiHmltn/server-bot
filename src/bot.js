@@ -151,7 +151,7 @@ const ficScrape = async () => {
         let month = now.toLocaleString('default', {month: 'short'})
         let euroDate = now.getDate() + " " + month + " " + now.getFullYear()
         //if euroDate and worksdata.time ==
-        console.log("before date comparison", euroDate, worksdata.time)
+        console.log("before date comparison", euroDate, worksData.time)
         if (euroDate == worksData.time) {
             console.log("inside comparison")
             //then compare worksdata.author to a list of authors from server
@@ -185,7 +185,7 @@ const ficScrape = async () => {
          
         }
       }
-      
+
       await browser.close()
 }
 
