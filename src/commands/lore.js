@@ -187,6 +187,7 @@ module.exports = {
                 .setDescription('Did you know the phrase "the moon is beautiful tonight" has a rich history? Kaichou is so smart and poetic! **Beep Boop**\nhttps://raydaug.tumblr.com/post/635363147164876800/the-moon-is-very-beautiful-tonight-the-love')
                 .setImage("https://images-ext-2.discordapp.net/external/yVyBSLT_0stRHYZAdXMAPdRz8iXSTYdGzrmFzcQFUpE/https/64.media.tumblr.com/5cbb86d2e941fa8937a693ce945653ff/e772ff5b51cfe136-a6/s1280x1920/3554fcb0761e2bdfacca262ed61cfc90324e2965.jpg")
 
+                
             message.channel.send(embeded)
         } 
     }
