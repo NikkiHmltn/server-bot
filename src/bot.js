@@ -99,7 +99,7 @@ let birthdayTest = new cron.CronJob('00 00 00 * * *', () => {
       channel.send(`Happy Birthday <@${person}>! You have survived another solar cycle around the earth. Congratulations.`);
     }
   })
-},null, true, "America/New_York")
+},null, true, "America/Los_Angeles")
 birthdayTest.start()
 
 const newWorks = [];
