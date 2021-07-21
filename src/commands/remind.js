@@ -2,7 +2,11 @@ module.exports = {
 	name: 'remind',
 	description: 'Sets a reminder to the requester',
 	execute(message, args) {
-        let splitMessage = args.split('"')
+        if (!args[0] || args[0] === "") {
+            return message.channel.send('Args undefined')
+        }
+        let string = args.toString()
+        let splitMessage = string.split('"')
         let filterMessage = splitMessage[0]
         let notifyPerson;
         let timeOfMessage = splitMessage[2]
@@ -12,7 +16,7 @@ module.exports = {
             //bot.message.mentions? 
             message.channel.send(`@<${notifyPerson}> was tagged with "${filterMessage}" task in ${timeOfMessage}`)
         } else if (filterMessage.includes('@')) {
-            let person = messge.mentions.members.first()
+            let person = message.mentions.members.first()
             notifyPerson = person.user.id
             message.channel.send(`@<${notifyPerson}> was tagged with "${filterMessage}" task in ${timeOfMessage}`)
         } else if (!filterMessage.includes('@') || !filterMessage.includes('me')) {
