@@ -7,7 +7,7 @@ const birthdays =
   },
   {
     id: "425792318562369536",
-    birthday: new Date("Janurary 7,2021"),
+    birthday: new Date("Janurary 7, 2021"),
     "Time Zone": "GMT-8"
   },
   {
@@ -37,7 +37,7 @@ const birthdays =
   },
   {
     id: "733131109063327746",
-    birthday: new Date("April 4,2021"),
+    birthday: new Date("April 4, 2021"),
     "Time Zone": "GMT-3"
   },
   {
@@ -62,7 +62,7 @@ const birthdays =
   },
   {
     id: "210145128176812032",
-    birthday: new Date("July 14,2021"),
+    birthday: new Date("July 14, 2021"),
     "Time Zone": "GMT-5"
   },
   {
@@ -107,7 +107,7 @@ const birthdays =
   },
   {
     id: "176874730182148096",
-    birthday: new Date("October 30,2021"),
+    birthday: new Date("October 30, 2021"),
     "Time Zone": "GMT-5"
   },
   {
@@ -117,7 +117,7 @@ const birthdays =
   },
   {
     id: "653406451288637460",
-    birthday: new Date("April 12,2021"),
+    birthday: new Date("April 12, 2021"),
     "Time Zone": "GMT-8"
   },
   {
@@ -127,7 +127,7 @@ const birthdays =
   },
   {
     id: "710912638510432289",
-    birthday: new Date("November 24,2021"),
+    birthday: new Date("November 24, 2021"),
     "Time Zone": "GMT+2"
   },
   {

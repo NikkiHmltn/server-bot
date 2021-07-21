@@ -91,7 +91,6 @@ let birthdayTest = new cron.CronJob('00 00 00 * * *', () => {
     let date = birthObj.birthday
     let dateMonth = date.getMonth()
     let dateDay = date.getDay()
-    let currentDate = new Date()
     let currentMonth = new Date().getMonth()
     let currentDay = new Date().getDay()
     if(dateMonth == currentMonth &&  dateDay == currentDay){
@@ -167,7 +166,7 @@ const ficScrape = async () => {
                         }
                     } else {
                         console.log("post here 2")
-                        let linkHalf = newWorks[i].titleLink
+                        let linkHalf = worksData.titleLink
                         let channel = bot.channels.cache.get("710207967009439765");
                         channel.send(`https://archiveofourown.org${linkHalf}`)
                         newWorks.push(worksData)
