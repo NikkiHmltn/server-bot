@@ -11,13 +11,13 @@ module.exports = {
         let notifyPerson;
         let timeOfMessage = splitMessage[2]
         if (filterMessage.includes('me')) {
-            notifyPerson = message.author.user.id
+            notifyPerson = message.author.id
             //run a function in here to set reminder
             //bot.message.mentions? 
             message.channel.send(`@<${notifyPerson}> was tagged with "${filterMessage}" task in ${timeOfMessage}`)
         } else if (filterMessage.includes('@')) {
             let person = message.mentions.members.first()
-            notifyPerson = person.user.id
+            notifyPerson = person.id
             message.channel.send(`@<${notifyPerson}> was tagged with "${filterMessage}" task in ${timeOfMessage}`)
         } else if (!filterMessage.includes('@') || !filterMessage.includes('me')) {
             message.channel.send('Error getting id')
