@@ -180,10 +180,10 @@ const ficScrape = async () => {
       await browser.close()
 }
 
-let fanficScrape = new cron.CronJob('00 */2 * * *', () => {
-  ficScrape()
-})
-fanficScrape.start()
+// let fanficScrape = new cron.CronJob('00 */2 * * *', () => {
+//   ficScrape()
+// })
+// fanficScrape.start()
 
 
 
