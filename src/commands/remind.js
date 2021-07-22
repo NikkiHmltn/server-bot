@@ -8,7 +8,7 @@ module.exports = {
         let string = args.toString()
         let splitMessage = string.split(' ')
         let requestor = splitMessage[0]
-        let filterMessage = args.replace(splitMessage[0], '')
+        let filterMessage = string.replace(splitMessage[0], '')
         let notifyPerson;
         let timeOfMessage = splitMessage[2].split(" ")
         let timeReminder = timeOfMessage[1]
