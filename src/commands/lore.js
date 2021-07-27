@@ -1,6 +1,5 @@
 
 const Discord = require('discord.js')
-const minhColorblind = require('../files/Screen_Recording_2021-07-27_at_11.44.18_AM.mp4')
 
 module.exports = {
     name: 'lore',

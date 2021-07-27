@@ -15,8 +15,6 @@
     "cron": "^1.8.2",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
-    "pg": "^8.5.1",
-    "puppeteer": "^10.1.0",
-    "sequelize": "^6.3.5"
+    "puppeteer": "^10.1.0"
   }
 }
