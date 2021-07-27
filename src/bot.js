@@ -1,8 +1,6 @@
 require('dotenv').config();
 
 const fs = require('fs')
-const Sequelize = require('sequelize')
-const db = require('../models')
 const cron = require('cron')
 const Discord = require('discord.js')
 const bot = new Discord.Client({ws: {intents: Discord.Intents.ALL}})
