@@ -10,8 +10,9 @@ const puppeteer = require('puppeteer');
 const cheerio = require('cheerio');
 
 
+require('../config/database')
 const birthdays = require('./birthdays.js')
-const token = process.env['SAYAKA_BOT_TOKEN']
+const token = process.env.SAYAKA_BOT_TOKEN
 
 const commandFiles = fs.readdirSync(__dirname + "/commands").filter(file => file.endsWith('.js'))
 
