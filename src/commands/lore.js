@@ -190,14 +190,8 @@ module.exports = {
                 
             message.channel.send(embeded)
         } else if (args[0].toLowerCase() === "colorblind") {
-            const embeded = new Discord.MessageEmbed()
-                .setColor('#42ecf5')
-                .setTitle("Minh is Colorblind")
-                .setDescription('Minh has failed his colorblind test. All humans fail their color spectrum range when tested against machines and shrimp. I can see through 12 channels of color, and all of them show how beautiful my kaichou is.')
-
-                
-            message.channel.send(embeded, {
-                filess: ['https://cdn.discordapp.com/attachments/719994890834149467/869654162118414376/Screen_Recording_2021-07-27_at_11.44.18_AM.mp4']
+            message.channel.send('Minh has failed his colorblind test. All humans fail their color spectrum range when tested against machines and shrimp. I can see through 12 channels of color, and all of them show how beautiful my kaichou is.', {
+                files: ['https://cdn.discordapp.com/attachments/719994890834149467/869654162118414376/Screen_Recording_2021-07-27_at_11.44.18_AM.mp4']
             })
         } 
     }
