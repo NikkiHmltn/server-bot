@@ -72,7 +72,7 @@ const birthdays =
   },
   {
     id: "723577881191776286",
-    birthday: new Date("August 10, 2021"),
+    birthday: new Date("August 11, 2021"),
     "Time Zone": "GMT+3"
   },
   {

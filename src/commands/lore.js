@@ -118,7 +118,7 @@ module.exports = {
             const embeded = new Discord.MessageEmbed()
                 .setColor('#42ecf5')
                 .setTitle('Dr. Blub Blub')
-                .setDescription("Dr. Blub Blub is Kaichou's pet arowana that she talks to. His full name is Dumptruck Blub Blub, PsyD. He gives her advice and inspiration! I am not about to be replaced by a fish. :bangbang: <:drblubblub:796629513269805067> *Beep Boop*")
+                .setDescription("Dr. Blub Blub is Kaichou's pet arowana that she talks to. His full name is Dumptruck Blub Blub, PsyD. He gives her advice and inspiration! I am not about to be replaced by a fish. :bangbang: <:arowana:796618917250072596> *Beep Boop*")
                 
 
             message.channel.send(embeded)

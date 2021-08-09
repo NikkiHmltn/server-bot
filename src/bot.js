@@ -13,6 +13,7 @@ const cheerio = require('cheerio');
 require('../config/database')
 const birthdays = require('./birthdays.js')
 const token = process.env.SAYAKA_BOT_TOKEN
+const FicScrape = require('../models/FicScrape')
 
 const commandFiles = fs.readdirSync(__dirname + "/commands").filter(file => file.endsWith('.js'))
 
@@ -100,9 +101,7 @@ let birthdayTest = new cron.CronJob('00 00 00 * * *', () => {
 },null, true, "America/Los_Angeles")
 birthdayTest.start()
 
-const newWorks = [];
 const ficScrape = async () => {
-    
     const browser = await puppeteer.launch({
 			args: [
 				'--no-sandbox',
@@ -117,9 +116,7 @@ const ficScrape = async () => {
             height: document.documentElement.clientHeight
         }
     })
-    
     const $ = cheerio.load(pageData.html)
-    
     const authors = ["DaughterOfTheKosmos", "AbominableKiwi", "MILKROT", "xXSintreatiesXx", "Salty_Bok_Choy", "wellthizizdeprezzing", "TwoStepsBehind", "KiraQuiz", "silversword", "drawanderlust", "RayDaug", "sharksncoldbrew", "lira777", "Dweebface", "VR_Silvers", "gata_mala", "nawaki", "NoxCounterspell", "Hiss", "TwoStepsBehind", "Uncleankle", "kirarisbitch", "Ladyjay1616", "LarkinUniverse", "MsArtheart"]
 
     $("div[class='header module']").each((i, element) =>{
@@ -143,48 +140,54 @@ const ficScrape = async () => {
         let now = new Date()
         let month = now.toLocaleString('default', {month: 'short'})
         let euroDate = now.getDate() + " " + month + " " + now.getFullYear()
-        //if euroDate and worksdata.time ==
-        if (euroDate == worksData.time) {
-            //then compare worksdata.author to a list of authors from server
-            for (let i = 0; i < authors.length; i++) {
-                if (worksData.author == authors[i]){
-                    if (newWorks.length !== 0 ){
-                        console.log("before for loop works is not 0")
-                        for(let i=0; i < newWorks.length; i++) {
-                            if(worksData.date === newWorks[i].date && worksData.author == newWorks[i].author && worksData.titleLink == newWorks[i].titleLink){
-                                console.log("before return they all match")
-                                return;
-                            } else if (worksData.date !== newWorks[i].date) {
-                                console.log("before splice dates dont match")
-                                newWorks.splice(i, 1)
-                                return;
-                            } else{
-                                console.log("post will be here to server")
-                                newWorks.push(worksData)
-                            }
-                        }
-                    } else {
-                        console.log("post here 2")
+        //we established the new fics as well as the proper data format for comparing the date to the fic date
+        // check the database for old fics first to delete! 
+        FicScrape.find({}, (err, fic) => {
+            //if it doesnt equal the current date, it needs to go
+            if(fic.postDate !== euroDate) {
+                FicScrape.deleteOne()
+            } 
+            else if (err) console.log(err)
+            else return;
+        })
+        //loop through the authors, then make sure the dates and authors match!!
+        for (let i = 0; i < authors.length; i++) {
+            //if the time matches the current date, and if the authors is on our watch list we want to check if it already exists
+            //we already got rid of the unmatching fics, so no need to check if theyre the same.
+            //should just be able to add it right away as long as the author and date are appropriate 
+             if (euroDate == worksData.time && worksData.author == authors[i]) {
+                FicScrape.findOne({postDate: worksData.time, author: worksData.authors[i], title: worksData.titleLink}, (err, fic) => {
+                    //findOne returns null, so if its null or it returns null then we save the new fic
+                    if (fic == null || null) {
+                        const newFic = new FicScrape({
+                            postDate: worksData.time, 
+                            author: worksData.authors[i], 
+                            linkHalf: worksData.titleLink
+                        })
+                        newFic.save((err) => {
+                        if (err) console.log(err)
+                        })
+                        .then(() => {
+                        //we saved the fic info to database, now we post it to the channel
                         let linkHalf = worksData.titleLink
                         let channel = bot.channels.cache.get("710207967009439765");
                         channel.send(`https://archiveofourown.org${linkHalf}`)
-                        newWorks.push(worksData)
-                    }
-                                        
-                }
-            }
+                        })
+                    } 
+                    else console.log(fic)
+                })
+                //at this point, we checked/deleted old fics, made sure the new fics matched the time, and author list.
+                //then we checked to see if it exists already! this runs every two hours and we dont want to keep making the new ones
+                //if it returns something, we just console log it, otherwise if its null we insert it into the DB then post it! 
+             }
         }
     })
-    console.log("before close", newWorks)
-      await browser.close()
+    await browser.close()
 }
-
-// let fanficScrape = new cron.CronJob('00 */2 * * *', () => {
-//   ficScrape()
-// })
-// fanficScrape.start()
-
-
+let fanficScrape = new cron.CronJob('00 */2 * * *', () => {
+  ficScrape()
+})
+fanficScrape.start()
 
 bot.on('guildMemberUpdate', (oldMember, newMember) => {
     const changeEmbed = new Discord.MessageEmbed()
