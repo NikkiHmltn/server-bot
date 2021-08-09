@@ -16,29 +16,28 @@ module.exports = {
         let reminder = () => {
             message.reply(`\n**REMINDER:**\n${filteredMessage}`)
         }
-        console.log(splitMessage[0].slice(-1))
-        switch(splitMessage[0].slice(-1)) {
+        switch(splitMessage[0].slice(-7)) {
             case 'seconds': {
-              let msDelay = splitMessage[0].slice(0, -1) * 1000;
-              message.reply("Your reminder has been set. I will remind you in " + splitMessage[0].slice(0, -1) + "seconds.");
+              let msDelay = splitMessage[0].slice(0, 2) * 1000;
+              message.reply("Your reminder has been set. I will remind you in " + splitMessage[0].slice(0, 2) + "seconds.");
               setTimeout(reminder, msDelay);
               break;
             }
             case 'minutes': {
-              let msDelay = splitMessage[0].slice(0, -1) * 60000;
-              message.reply("Your reminder has been set. I will remind you in " + splitMessage[0].slice(0, -1) + "minutes.");
+              let msDelay = splitMessage[0].slice(0, 2) * 60000;
+              message.reply("Your reminder has been set. I will remind you in " + splitMessage[0].slice(0, 2) + "minutes.");
               setTimeout(reminder, msDelay);
               break;
             }
             case 'hours': {
-              let msDelay = splitMessage[0].slice(0, -1) * 3600000;
-              message.reply("Your reminder has been set. I will remind you in " + splitMessage[0].slice(0, -1) + "hours.");
+              let msDelay = splitMessage[0].slice(0, 2) * 3600000;
+              message.reply("Your reminder has been set. I will remind you in " + splitMessage[0].slice(0, 2) + "hours.");
               setTimeout(reminder, msDelay);
               break;
             }
             case 'days': {
-              let msDelay = splitMessage[0].slice(0, -1) * 86400000;
-              message.reply("Your reminder has been set. I will remind you in " + splitMessage[0].slice(0, -1) + "days.");
+              let msDelay = splitMessage[0].slice(0, 2) * 86400000;
+              message.reply("Your reminder has been set. I will remind you in " + splitMessage[0].slice(0, 2) + "days.");
               setTimeout(reminder, msDelay);
               break;
             }
