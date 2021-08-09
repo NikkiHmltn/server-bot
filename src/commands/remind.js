@@ -10,11 +10,8 @@ module.exports = {
         let splitMessage = args
         let leaveOut = 0;
         let filteredMessage = args.filter((element,idx) => idx !== leaveOut)
-        console.log(filteredMessage)
-        console.log(splitMessage[0].slice(-1), "should be the amount of time")
-        console.log(splitMessage[0].slice(0, -1), "msDelay");
         let reminder = () => {
-            message.reply(`\n**REMINDER:**\n${filteredMessage}`)
+            message.reply(`\n**REMINDER:**\n${filteredMessage.join(" ")}`)
         }
         switch(splitMessage[0].slice(-7)) {
             case 'seconds': {
