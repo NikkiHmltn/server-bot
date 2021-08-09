@@ -59,7 +59,6 @@ module.exports = {
             let msDelay = filteredTime * 86400000;
             message.reply("Your reminder has been set. I will remind you in " + filteredTime + " day(s).");
             setTimeout(reminder, msDelay);
-            break;
         }
         
 	}
