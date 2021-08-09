@@ -11,10 +11,16 @@ module.exports = {
         let splitMessage = args
         //to target the time we need to leave out the first index
         let timeTarget = 0;
-        let filteredTime = args.filter((element,idx) => idx ==timeTarget)
+        let filteredTime = args.filter((element,idx) => idx == timeTarget)
         let amountTimeTarget = 1
-        let filteredTimeTarget = args.filter((element,idx) => idx ==amountTimeTarget)
+        let filteredTimeTarget = args.filter((element,idx) => idx == amountTimeTarget)
         let filteredMessage = args.slice(2)
+        console.log(filteredMessage, "filtered message")
+        console.log(filteredTime, "filtered time (a number)")
+        console.log(filteredTimeTarget, "filtered time (not a number)")
+
+
+
         //to target the number of times we leave
         let reminder = () => {
             message.reply(`\n**REMINDER:**\n${filteredMessage.join(" ")}`)
@@ -53,20 +59,21 @@ module.exports = {
               break;
             }
             case 'minute': {
-              let msDelay = splitMessage[0].slice(0, 2) * 60000;
-              message.reply("Your reminder has been set. I will remind you in " + splitMessage[0].slice(0, 2) + " minute(s).");
+                console.log("hit minute")
+              let msDelay = filteredTime * 60000;
+              message.reply("Your reminder has been set. I will remind you in " + filteredTime + " minute(s).");
               setTimeout(reminder, msDelay);
               break;
             }
             case 'hour': {
-              let msDelay = splitMessage[0].slice(0, 2) * 3600000;
-              message.reply("Your reminder has been set. I will remind you in " + splitMessage[0].slice(0, 2) + " hour(s).");
+              let msDelay = filteredTime * 3600000;
+              message.reply("Your reminder has been set. I will remind you in " + filteredTime + " hour(s).");
               setTimeout(reminder, msDelay);
               break;
             }
             case 'day': {
-              let msDelay = splitMessage[0].slice(0, 2) * 86400000;
-              message.reply("Your reminder has been set. I will remind you in " + splitMessage[0].slice(0, 2) + " day(s).");
+              let msDelay = filteredTime * 86400000;
+              message.reply("Your reminder has been set. I will remind you in " + filteredTime + " day(s).");
               setTimeout(reminder, msDelay);
               break;
             }
