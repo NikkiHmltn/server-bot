@@ -14,24 +14,28 @@ module.exports = {
             message.reply(`\n**REMINDER:**\n${filteredMessage.join(" ")}`)
         }
         switch(splitMessage[0].slice(-7)) {
-            case 'seconds': {
+            case 'seconds': 
+            case 'second': {
               let msDelay = splitMessage[0].slice(0, 2) * 1000;
               message.reply("Your reminder has been set. I will remind you in " + splitMessage[0].slice(0, 2) + "seconds.");
               setTimeout(reminder, msDelay);
               break;
             }
+            case 'minute':
             case 'minutes': {
               let msDelay = splitMessage[0].slice(0, 2) * 60000;
               message.reply("Your reminder has been set. I will remind you in " + splitMessage[0].slice(0, 2) + "minutes.");
               setTimeout(reminder, msDelay);
               break;
             }
+            case 'hour':
             case 'hours': {
               let msDelay = splitMessage[0].slice(0, 2) * 3600000;
               message.reply("Your reminder has been set. I will remind you in " + splitMessage[0].slice(0, 2) + "hours.");
               setTimeout(reminder, msDelay);
               break;
             }
+            case 'day':
             case 'days': {
               let msDelay = splitMessage[0].slice(0, 2) * 86400000;
               message.reply("Your reminder has been set. I will remind you in " + splitMessage[0].slice(0, 2) + "days.");
