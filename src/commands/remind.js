@@ -6,7 +6,7 @@ module.exports = {
             return message.channel.send('Args undefined')
         }
         console.log(args)
-        let splitMessage = args.split(' ');
+        let splitMessage = args
         let filteredMessage = args.replace(splitMessage[0], '');
         let reminder = () => {
             message.reply(`\n**REMINDER:**\n${filteredMessage}`)
