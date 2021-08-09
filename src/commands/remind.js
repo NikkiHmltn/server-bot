@@ -36,6 +36,6 @@ module.exports = {
               setTimeout(reminder, msDelay);
               break;
             }
-		
-	},
-};
+        }
+	}
+}
