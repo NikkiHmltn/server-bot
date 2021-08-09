@@ -6,33 +6,36 @@ module.exports = {
             return message.channel.send('Args undefined')
         }
         console.log(args)
-        let string = args.toString()
-        console.log(string)
-        // let string = args.toString()
-        // let splitMessage = string.split(' ')
-        // let requestor = splitMessage[0]
-        // let filterMessage = string.replace(splitMessage[0], '')
-        // let notifyPerson;
-        // let timeOfMessage = splitMessage[2].split(" ")
-        // let timeReminder = timeOfMessage[1]
-        // if (requestor.includes('me')) {
-        //     notifyPerson = message.author.id
-        //     //run a function in here to set reminder
-        //     //bot.message.mentions? 
-        //     console.log(splitMessage)
-        //     // message.channel.send(`<@${notifyPerson}> was tagged with "${filterMessage}" task in ${timeOfMessage}`)
-        // } else if (requestor.includes('@')) {
-        //     let person = message.mentions.members.first()
-        //     notifyPerson = person.id
-        //     console.log(splitMessage)
-        //     // message.channel.send(`<@${notifyPerson}> was tagged with "${filterMessage}" task in ${timeOfMessage}`)
-        // } else if (!requestor.includes('@') || !requestor.includes('me')) {
-
-        //     message.channel.send('Error getting id')
-        // } else {
-
-        //     message.channel.send('404 Not Found')
-        // }
+        let splitMessage = args.split(' ');
+        let filteredMessage = args.replace(splitMessage[0], '');
+        let reminder = () => {
+            message.reply(`\n**REMINDER:**\n${filteredMessage}`)
+        }
+        switch(splitMessage[0].slice(-1)) {
+            case 'seconds': {
+              let msDelay = splitMessage[0].slice(0, -1) * 1000;
+              message.reply("Your reminder has been set. I will remind you in " + splitMessage[0].slice(0, -1) + "seconds.");
+              setTimeout(reminder, msDelay);
+              break;
+            }
+            case 'minutes': {
+              let msDelay = splitMessage[0].slice(0, -1) * 60000;
+              message.reply("Your reminder has been set. I will remind you in " + splitMessage[0].slice(0, -1) + "minutes.");
+              setTimeout(reminder, msDelay);
+              break;
+            }
+            case 'hours': {
+              let msDelay = splitMessage[0].slice(0, -1) * 3600000;
+              message.reply("Your reminder has been set. I will remind you in " + splitMessage[0].slice(0, -1) + "hours.");
+              setTimeout(reminder, msDelay);
+              break;
+            }
+            case 'days': {
+              let msDelay = splitMessage[0].slice(0, -1) * 86400000;
+              message.reply("Your reminder has been set. I will remind you in " + splitMessage[0].slice(0, -1) + "days.");
+              setTimeout(reminder, msDelay);
+              break;
+            }
 		
 	},
 };
