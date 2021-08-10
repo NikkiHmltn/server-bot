@@ -157,7 +157,7 @@ const ficScrape = async () => {
             //should just be able to add it right away as long as the author and date are appropriate 
              if (euroDate == worksData.time && worksData.author == authors[i]) {
                  console.log(worksData, "worksdata")
-                FicScrape.findOne({postDate: worksData.time, author: worksData.authors[i], title: worksData.titleLink}, (err, fic) => {
+                FicScrape.findOne({postDate: worksData.time, author: worksData.authors[i], linkHalf: worksData.titleLink}, (err, fic) => {
                     //findOne returns null, so if its null or it returns null then we save the new fic
                     console.log(err)
                     console.log(fic)
