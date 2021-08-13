@@ -147,45 +147,47 @@ const ficScrape = async () => {
             if(fic.postDate !== euroDate) {
                 FicScrape.deleteOne()
             } 
-            else if (err) console.log(err)
-            else return;
-        })
-        //loop through the authors, then make sure the dates and authors match!!
-        for (let i = 0; i < authors.length; i++) {
-            //if the time matches the current date, and if the authors is on our watch list we want to check if it already exists
-            //we already got rid of the unmatching fics, so no need to check if theyre the same.
-            //should just be able to add it right away as long as the author and date are appropriate 
-             if (euroDate == worksData.time && worksData.author == authors[i]) {
-                 console.log(worksData, "worksdata")
-                FicScrape.findOne({postDate: worksData.time, author: worksData.authors[i], linkHalf: worksData.titleLink}, (err, fic) => {
-                    //findOne returns null, so if its null or it returns null then we save the new fic
-                    console.log(err)
-                    console.log(fic)
-                    if (fic == null || null) {
-                        const newFic = new FicScrape({
-                            postDate: worksData.time, 
-                            author: worksData.authors[i], 
-                            linkHalf: worksData.titleLink
+            else if (fic.postDate == undefined) {
+                //loop through the authors, then make sure the dates and authors match!!
+                for (let i = 0; i < authors.length; i++) {
+                    //if the time matches the current date, and if the authors is on our watch list we want to check if it already exists
+                    //we already got rid of the unmatching fics, so no need to check if theyre the same.
+                    //should just be able to add it right away as long as the author and date are appropriate 
+                    if (euroDate == worksData.time && worksData.author == authors[i]) {
+                        console.log(worksData, "worksdata")
+                        FicScrape.findOne({postDate: worksData.time, author: worksData.authors[i], linkHalf: worksData.titleLink}, (err, fic) => {
+                            //findOne returns null, so if its null or it returns null then we save the new fic
+                            console.log(err)
+                            console.log(fic)
+                            if (fic == null || null) {
+                                const newFic = new FicScrape({
+                                    postDate: worksData.time, 
+                                    author: worksData.authors[i], 
+                                    linkHalf: worksData.titleLink
+                                })
+                                newFic.save((err) => {
+                                    if (err) return handleError(err)
+                                })
+                                .then(() => {
+                                //we saved the fic info to database, now we post it to the channel
+                                let linkHalf = worksData.titleLink
+                                let channel = bot.channels.cache.get("710207967009439765");
+                                channel.send(`https://archiveofourown.org${linkHalf}`)
+                                })
+                            } else {
+                                ((err) => console.error(`failed to find document: ${err}`))
+                            }
+                            
                         })
-                        newFic.save((err) => {
-                            if (err) return handleError(err)
-                        })
-                        .then(() => {
-                        //we saved the fic info to database, now we post it to the channel
-                        let linkHalf = worksData.titleLink
-                        let channel = bot.channels.cache.get("710207967009439765");
-                        channel.send(`https://archiveofourown.org${linkHalf}`)
-                        })
-                    } else {
-                        ((err) => console.error(`failed to find document: ${err}`))
+                        //at this point, we checked/deleted old fics, made sure the new fics matched the time, and author list.
+                        //then we checked to see if it exists already! this runs every two hours and we dont want to keep making the new ones
+                        //if it returns something, we just console log it, otherwise if its null we insert it into the DB then post it! 
                     }
-                    
-                })
-                //at this point, we checked/deleted old fics, made sure the new fics matched the time, and author list.
-                //then we checked to see if it exists already! this runs every two hours and we dont want to keep making the new ones
-                //if it returns something, we just console log it, otherwise if its null we insert it into the DB then post it! 
-             }
-        }
+                }
+            }
+            else if (err) console.log(err);
+        })
+        
     })
     await browser.close()
 }
