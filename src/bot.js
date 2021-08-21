@@ -95,7 +95,8 @@ let birthdayTest = new cron.CronJob('00 00 00 * * *', () => {
     let currentDay = new Date().getDay()
     if(dateMonth == currentMonth &&  dateDay == currentDay){
       let person = birthObj.id
-      channel.send(`Happy Birthday <@${person}>! You have survived another solar cycle around the earth. Congratulations.`);
+      console.log (dateMonth, "dateMonth", currentMonth, "currentMonth", dateDay, "dateDay", currentDay, "currentDay")
+    //   channel.send(`Happy Birthday <@${person}>! You have survived another solar cycle around the earth. Congratulations.`);
     }
   })
 },null, true, "America/Los_Angeles")
