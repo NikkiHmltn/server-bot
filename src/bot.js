@@ -90,10 +90,10 @@ let birthdayTest = new cron.CronJob('00 00 00 * * *', () => {
   birthDates.forEach(birthObj =>{
     let date = birthObj.birthday
     let dateMonth = date.getMonth()
-    let dateDay = date.getDay()
+    let dateDay = date.getDate()
     let currentMonth = new Date().getMonth()
-    let currentDay = new Date().getDay()
-    if(dateMonth == currentMonth &&  dateDay == currentDay){
+    let currentDay = new Date().getDate()
+    if(dateMonth == currentMonth && dateDay == currentDay){
       let person = birthObj.id
         console.log (dateMonth, "dateMonth", currentMonth, "currentMonth", dateDay, "dateDay", currentDay, "currentDay")
       channel.send(`Happy Birthday <@${person}>! You have survived another solar cycle around the earth. Congratulations.`);
