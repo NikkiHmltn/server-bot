@@ -16,11 +16,6 @@ const birthdays =
     "Time Zone": "GMT-8"
   },
   {
-    id: "337387105791639552",
-    birthday: new Date("Feburary 13, 2021"),
-    "Time Zone": "GMT-8"
-  },
-  {
     id: "776620829772873738",
     birthday: new Date("Feburary 2, 2021"),
     "Time Zone": "GMT-7"
@@ -54,11 +49,6 @@ const birthdays =
     id: "330990593914175518",
     birthday: new Date("June 16, 2021"),
     "Time Zone": "GMT-8"
-  },
-  {
-    id: "716372360877310053",
-    birthday: new Date("June 19, 2021"),
-    "Time Zone": "GMT-3"
   },
   {
     id: "210145128176812032",
@@ -96,23 +86,8 @@ const birthdays =
     "Time Zone": "GMT-5"
   },
   {
-    id: "694250571229823076",
-    birthday: new Date("October 15, 2021"),
-    "Time Zone": "GMT-5"
-  },
-  {
-    id: "717816505777127514",
-    birthday: new Date("October 17, 2021"),
-    "Time Zone": "GMT-5"
-  },
-  {
     id: "176874730182148096",
     birthday: new Date("October 30, 2021"),
-    "Time Zone": "GMT-5"
-  },
-  {
-    id: "347954243837362196",
-    birthday: new Date("November 8, 2021"),
     "Time Zone": "GMT-5"
   },
   {
