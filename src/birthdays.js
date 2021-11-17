@@ -101,11 +101,6 @@ const birthdays =
     "Time Zone": "GMT+10"
   },
   {
-    id: "710912638510432289",
-    birthday: new Date("November 24, 2021"),
-    "Time Zone": "GMT+2"
-  },
-  {
     id: "690746759873429606",
     birthday: new Date("December 20, 2021"),
     "Time Zone": "GMT-5"
