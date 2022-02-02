@@ -17,7 +17,7 @@ const birthdays =
   },
   {
     id: "776620829772873738",
-    birthday: new Date("Feburary 2, 2021"),
+    birthday: new Date("Feburary 20, 2021"),
     "Time Zone": "GMT-7"
   },
   {
